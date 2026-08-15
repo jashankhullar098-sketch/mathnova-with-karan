@@ -6,485 +6,428 @@
 <title>MathNova with Karan</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f4f7fb;
-  color:#172033;
-}
-
-header{
-  background:linear-gradient(135deg,#173b8f,#2467d1);
-  color:white;
-  padding:25px 18px;
-  text-align:center;
-}
-
-header h1{
-  font-size:30px;
-}
-
-header p{
-  margin-top:7px;
-  font-size:15px;
-}
-
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-  background:white;
-  padding:12px;
-  box-shadow:0 2px 8px #0002;
-}
-
-nav button{
-  border:0;
-  background:#e8efff;
-  color:#173b8f;
-  padding:10px 14px;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-nav button:hover{
-  background:#173b8f;
-  color:white;
-}
-
-main{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
-
-.section{
-  display:none;
-}
-
-.section.active{
-  display:block;
-}
-
-.hero{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 3px 12px #0001;
-  margin-bottom:20px;
-}
-
-.hero h2{
-  color:#173b8f;
-  margin-bottom:10px;
-}
-
-.card-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-}
-
-.card{
-  background:white;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 3px 10px #0001;
-}
-
-.card h3{
-  color:#173b8f;
-  margin-bottom:8px;
-}
-
-.card button,
-.action{
-  margin-top:12px;
-  padding:10px 15px;
-  border:0;
-  border-radius:10px;
-  background:#2467d1;
-  color:white;
-  cursor:pointer;
-}
-
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:1px solid #ccd4e0;
-  border-radius:10px;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-.note{
-  background:#fffdf0;
-  border-left:5px solid #f0b400;
-  padding:15px;
-  margin:12px 0;
-  border-radius:8px;
-}
-
-.question{
-  background:white;
-  padding:16px;
-  margin:12px 0;
-  border-radius:12px;
-  box-shadow:0 2px 8px #0001;
-}
-
-.answer{
-  display:none;
-  margin-top:10px;
-  padding:10px;
-  background:#eaf7ea;
-  border-radius:8px;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  margin-top:30px;
-  background:#172033;
-  color:white;
-}
-
-.small{
-  color:#667085;
-  font-size:14px;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f4f7fb;color:#172033}
+header{background:linear-gradient(135deg,#173b8f,#2467d1);color:white;text-align:center;padding:25px 15px}
+header h1{font-size:30px}
+header p{margin-top:8px}
+nav{background:white;padding:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;box-shadow:0 2px 8px #0002}
+button{border:0;border-radius:10px;padding:11px 16px;background:#2467d1;color:white;font-weight:bold;cursor:pointer}
+nav button{background:#e8efff;color:#173b8f;border-radius:20px}
+main{max-width:900px;margin:auto;padding:20px}
+.page{display:none}
+.page.active{display:block}
+.hero,.card,.chapter,.question,.note{background:white;border-radius:16px;padding:20px;margin-bottom:15px;box-shadow:0 3px 10px #0001}
+.hero h2,.card h3,.chapter h3{color:#173b8f;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.chapter{cursor:pointer}
+.chapter:hover{transform:translateY(-2px)}
+.back{background:#555;margin-bottom:15px}
+.answer{display:none;background:#eaf7ea;padding:12px;margin-top:10px;border-radius:8px}
+input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ccd4e0;border-radius:10px}
+textarea{min-height:120px}
+#teacherContent{display:none}
+footer{text-align:center;background:#172033;color:white;padding:25px;margin-top:30px}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>📐 MathNova with Karan</h1>
-  <p>CBSE & PSEB Mathematics • Class 11 & 12</p>
+<h1>📐 MathNova with Karan</h1>
+<p>CBSE & PSEB Mathematics • Class 11 & 12</p>
 </header>
 
 <nav>
-  <button onclick="showSection('home')">🏠 Home</button>
-  <button onclick="showSection('chapters')">📚 Chapters</button>
-  <button onclick="showSection('notes')">📝 Notes</button>
-  <button onclick="showSection('questions')">❓ Important Questions</button>
-  <button onclick="showSection('teacher')">👨‍🏫 Teacher Panel</button>
+<button onclick="openPage('home')">🏠 Home</button>
+<button onclick="openPage('chapters')">📚 Chapters</button>
+<button onclick="openPage('notes')">📝 Notes</button>
+<button onclick="openPage('questions')">❓ Questions</button>
+<button onclick="openPage('teacher')">👨‍🏫 Teacher Panel</button>
 </nav>
 
 <main>
 
 <!-- HOME -->
-<section id="home" class="section active">
+<div id="home" class="page active">
+<div class="hero">
+<h2>Welcome to MathNova 🚀</h2>
+<p>Learn Mathematics with chapters, notes and important questions.</p>
+<br>
+<button onclick="openPage('chapters')">Start Learning →</button>
+</div>
 
-  <div class="hero">
-    <h2>Welcome to MathNova 🚀</h2>
-    <p>
-      Learn Mathematics chapter-by-chapter with simple explanations,
-      notes and important questions.
-    </p>
+<div class="grid">
+<div class="card">
+<h3>📚 Chapters</h3>
+<p>Choose Class 11 or Class 12 and start learning.</p>
+</div>
 
-    <button class="action" onclick="showSection('chapters')">
-      Start Learning
-    </button>
-  </div>
+<div class="card">
+<h3>📝 Notes</h3>
+<p>Quick revision notes and formulas.</p>
+</div>
 
-  <div class="card-container">
-
-    <div class="card">
-      <h3>📚 Chapters</h3>
-      <p>Explore Class 11 and Class 12 Mathematics chapters.</p>
-      <button onclick="showSection('chapters')">Open Chapters</button>
-    </div>
-
-    <div class="card">
-      <h3>📝 Notes</h3>
-      <p>Quick revision notes and important formulas.</p>
-      <button onclick="showSection('notes')">Open Notes</button>
-    </div>
-
-    <div class="card">
-      <h3>❓ Important Questions</h3>
-      <p>Practice important Mathematics questions.</p>
-      <button onclick="showSection('questions')">Practice</button>
-    </div>
-
-  </div>
-</section>
+<div class="card">
+<h3>❓ Important Questions</h3>
+<p>Practice important questions.</p>
+</div>
+</div>
+</div>
 
 
 <!-- CHAPTERS -->
-<section id="chapters" class="section">
+<div id="chapters" class="page">
 
-  <div class="hero">
-    <h2>📚 Mathematics Chapters</h2>
-    <p class="small">Choose your class.</p>
-  </div>
+<div class="hero">
+<h2>📚 Choose Your Class</h2>
+<p>Select your class to see its chapters.</p>
+</div>
 
-  <div class="card-container">
+<div class="grid">
 
-    <div class="card">
-      <h3>Class 11</h3>
-      <p>Sets</p>
-      <p>Relations & Functions</p>
-      <p>Trigonometric Functions</p>
-      <p>Complex Numbers</p>
-      <p>Linear Inequalities</p>
-      <p>Permutations & Combinations</p>
-      <p>Binomial Theorem</p>
-      <p>Sequences & Series</p>
-      <p>Straight Lines</p>
-      <p>Conic Sections</p>
-      <p>Statistics</p>
-      <p>Probability</p>
-    </div>
+<div class="card">
+<h3>📘 Class 11</h3>
+<p>Mathematics chapters for Class 11.</p>
+<br>
+<button onclick="showClass(11)">Choose Class 11</button>
+</div>
 
-    <div class="card">
-      <h3>Class 12</h3>
-      <p>Relations & Functions</p>
-      <p>Inverse Trigonometric Functions</p>
-      <p>Matrices</p>
-      <p>Determinants</p>
-      <p>Continuity & Differentiability</p>
-      <p>Applications of Derivatives</p>
-      <p>Integrals</p>
-      <p>Differential Equations</p>
-      <p>Vectors</p>
-      <p>3D Geometry</p>
-      <p>Probability</p>
-    </div>
+<div class="card">
+<h3>📕 Class 12</h3>
+<p>Mathematics chapters for Class 12.</p>
+<br>
+<button onclick="showClass(12)">Choose Class 12</button>
+</div>
 
-  </div>
-</section>
+</div>
+
+<div id="chapterList"></div>
+<div id="chapterContent"></div>
+
+</div>
 
 
 <!-- NOTES -->
-<section id="notes" class="section">
+<div id="notes" class="page">
 
-  <div class="hero">
-    <h2>📝 Mathematics Notes</h2>
-    <p>Quick revision material.</p>
-  </div>
+<div class="hero">
+<h2>📝 Mathematics Notes</h2>
+<p>Important revision material.</p>
+</div>
 
-  <div class="note">
-    <h3>Sets</h3>
-    <p>
-      A set is a well-defined collection of distinct objects.
-    </p>
-  </div>
+<div class="note">
+<h3>Sets</h3>
+<p>A set is a well-defined collection of distinct objects.</p>
+</div>
 
-  <div class="note">
-    <h3>Quadratic Equation</h3>
-    <p>
-      A quadratic equation is generally written as:
-      ax² + bx + c = 0, where a ≠ 0.
-    </p>
-  </div>
+<div class="note">
+<h3>Quadratic Equation</h3>
+<p>ax² + bx + c = 0, where a ≠ 0.</p>
+</div>
 
-  <div class="note">
-    <h3>Discriminant</h3>
-    <p>
-      For ax² + bx + c = 0,
-      D = b² − 4ac.
-    </p>
-  </div>
+<div class="note">
+<h3>Discriminant</h3>
+<p>D = b² − 4ac</p>
+</div>
 
-  <div class="note">
-    <h3>Important Identity</h3>
-    <p>
-      (a + b)² = a² + 2ab + b²
-    </p>
-  </div>
+<div class="note">
+<h3>Important Identity</h3>
+<p>(a+b)² = a² + 2ab + b²</p>
+</div>
 
-</section>
+</div>
 
 
 <!-- QUESTIONS -->
-<section id="questions" class="section">
+<div id="questions" class="page">
 
-  <div class="hero">
-    <h2>❓ Important Questions</h2>
-    <p>Tap "Show Answer" to check the answer.</p>
-  </div>
+<div class="hero">
+<h2>❓ Important Questions</h2>
+<p>Tap the button to reveal the answer.</p>
+</div>
 
-  <div class="question">
-    <b>1. If A = {1,2,3} and B = {3,4,5}, find A ∩ B.</b>
-    <button class="action" onclick="toggleAnswer('a1')">
-      Show Answer
-    </button>
-    <div id="a1" class="answer">
-      A ∩ B = {3}
-    </div>
-  </div>
+<div class="question">
+<b>1. If A = {1,2,3} and B = {3,4,5}, find A ∩ B.</b>
+<br><br>
+<button onclick="answer('q1')">Show Answer</button>
+<div id="q1" class="answer">A ∩ B = {3}</div>
+</div>
 
-  <div class="question">
-    <b>2. Find the discriminant of x² − 5x + 6 = 0.</b>
-    <button class="action" onclick="toggleAnswer('a2')">
-      Show Answer
-    </button>
-    <div id="a2" class="answer">
-      D = b² − 4ac = 25 − 24 = 1
-    </div>
-  </div>
+<div class="question">
+<b>2. Find the discriminant of x² − 5x + 6 = 0.</b>
+<br><br>
+<button onclick="answer('q2')">Show Answer</button>
+<div id="q2" class="answer">
+D = b² − 4ac = 25 − 24 = 1
+</div>
+</div>
 
-  <div class="question">
-    <b>3. What is the value of sin²θ + cos²θ?</b>
-    <button class="action" onclick="toggleAnswer('a3')">
-      Show Answer
-    </button>
-    <div id="a3" class="answer">
-      1
-    </div>
-  </div>
+<div class="question">
+<b>3. What is sin²θ + cos²θ?</b>
+<br><br>
+<button onclick="answer('q3')">Show Answer</button>
+<div id="q3" class="answer">1</div>
+</div>
 
-</section>
+</div>
 
 
-<!-- TEACHER PANEL -->
-<section id="teacher" class="section">
+<!-- TEACHER -->
+<div id="teacher" class="page">
 
-  <div class="hero">
-    <h2>👨‍🏫 Teacher Panel</h2>
-    <p>Teacher login for managing MathNova content.</p>
+<div class="hero">
+<h2>👨‍🏫 Teacher Panel</h2>
+<p>Teacher login</p>
 
-    <input
-      type="password"
-      id="teacherPassword"
-      placeholder="Enter teacher password"
-    >
+<input type="password" id="password" placeholder="Enter password">
 
-    <button class="action" onclick="teacherLogin()">
-      Login
-    </button>
+<button onclick="login()">Login</button>
 
-    <p id="loginMessage"></p>
-  </div>
+<p id="loginMessage"></p>
+</div>
 
-  <div id="teacherContent" style="display:none;">
+<div id="teacherContent">
 
-    <div class="hero">
-      <h2>Add a Note</h2>
+<div class="hero">
+<h2>Add Note</h2>
 
-      <input
-        type="text"
-        id="noteTitle"
-        placeholder="Note title"
-      >
+<input id="noteTitle" placeholder="Note title">
 
-      <textarea
-        id="noteText"
-        placeholder="Write your note here..."
-      ></textarea>
+<textarea id="noteText" placeholder="Write note"></textarea>
 
-      <button class="action" onclick="addNote()">
-        Add Note
-      </button>
-    </div>
+<button onclick="addNote()">Add Note</button>
+</div>
 
-    <div id="teacherNotes"></div>
+<div id="newNotes"></div>
 
-  </div>
+</div>
 
-</section>
+</div>
 
 </main>
 
 <footer>
-  <p>© 2026 MathNova with Karan</p>
-  <p>Learn • Practice • Improve 📐</p>
+© 2026 MathNova with Karan
 </footer>
 
 
 <script>
 
-function showSection(sectionId){
+function openPage(id){
 
-  const sections=document.querySelectorAll(".section");
+document.querySelectorAll(".page").forEach(function(page){
+page.classList.remove("active");
+});
 
-  sections.forEach(function(section){
-    section.classList.remove("active");
-  });
+document.getElementById(id).classList.add("active");
 
-  document.getElementById(sectionId).classList.add("active");
+window.scrollTo(0,0);
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
 }
 
 
-function toggleAnswer(id){
+/* CLASS & CHAPTER SYSTEM */
 
-  const answer=document.getElementById(id);
+const class11 = [
+"Sets",
+"Relations and Functions",
+"Trigonometric Functions",
+"Complex Numbers and Quadratic Equations",
+"Linear Inequalities",
+"Permutations and Combinations",
+"Binomial Theorem",
+"Sequences and Series",
+"Straight Lines",
+"Conic Sections",
+"Introduction to Three Dimensional Geometry",
+"Limits and Derivatives",
+"Statistics",
+"Probability"
+];
 
-  if(answer.style.display==="block"){
-    answer.style.display="none";
-  }else{
-    answer.style.display="block";
-  }
+const class12 = [
+"Relations and Functions",
+"Inverse Trigonometric Functions",
+"Matrices",
+"Determinants",
+"Continuity and Differentiability",
+"Applications of Derivatives",
+"Integrals",
+"Application of Integrals",
+"Differential Equations",
+"Vector Algebra",
+"Three Dimensional Geometry",
+"Linear Programming",
+"Probability"
+];
+
+
+function showClass(classNumber){
+
+let chapters;
+
+if(classNumber === 11){
+chapters = class11;
+}else{
+chapters = class12;
+}
+
+let html = `
+<div class="hero">
+<h2>📚 Class ${classNumber} Chapters</h2>
+<p>Tap any chapter to open it.</p>
+</div>
+`;
+
+chapters.forEach(function(chapter,index){
+
+html += `
+<div class="chapter" onclick="openChapter(${classNumber},${index})">
+<h3>Chapter ${index+1}</h3>
+<p>${chapter}</p>
+<button>Open Chapter →</button>
+</div>
+`;
+
+});
+
+document.getElementById("chapterList").innerHTML = html;
+
+document.getElementById("chapterContent").innerHTML = "";
+
 }
 
 
-function teacherLogin(){
+/* CHAPTER CONTENT */
 
-  const password=document.getElementById("teacherPassword").value;
+function openChapter(classNumber,index){
 
-  /*
-   Teacher password:
-   Coco123
-  */
+let chapters = classNumber === 11 ? class11 : class12;
 
-  if(password==="Coco123"){
+let chapterName = chapters[index];
 
-    document.getElementById("teacherContent").style.display="block";
+document.getElementById("chapterContent").innerHTML = `
 
-    document.getElementById("loginMessage").innerHTML=
-      "✅ Login successful!";
+<div class="hero">
 
-  }else{
+<button class="back" onclick="closeChapter()">← Back to Chapters</button>
 
-    document.getElementById("loginMessage").innerHTML=
-      "❌ Incorrect password.";
+<h2>📖 ${chapterName}</h2>
 
-  }
+<p><b>Class ${classNumber}</b></p>
+
+<br>
+
+<h3>What you will learn</h3>
+
+<p>
+This chapter will contain complete MathNova notes,
+important formulas, solved examples and practice questions.
+</p>
+
+<br>
+
+<h3>📝 Notes</h3>
+
+<p>
+Chapter notes will be added here. This section can later
+contain the full NCERT/CBSE/PSEB study material.
+</p>
+
+<br>
+
+<h3>⭐ Important Formula</h3>
+
+<p>
+Important formulas for ${chapterName} will be added here.
+</p>
+
+<br>
+
+<button onclick="openPage('questions')">
+Practice Questions →
+</button>
+
+</div>
+`;
+
+window.scrollTo(0,document.body.scrollHeight);
+
 }
 
+
+function closeChapter(){
+
+document.getElementById("chapterContent").innerHTML="";
+
+}
+
+
+/* QUESTIONS */
+
+function answer(id){
+
+let box=document.getElementById(id);
+
+if(box.style.display==="block"){
+box.style.display="none";
+}else{
+box.style.display="block";
+}
+
+}
+
+
+/* TEACHER LOGIN */
+
+function login(){
+
+let password=document.getElementById("password").value;
+
+if(password==="Coco123"){
+
+document.getElementById("teacherContent").style.display="block";
+
+document.getElementById("loginMessage").innerHTML=
+"✅ Login successful!";
+
+}else{
+
+document.getElementById("loginMessage").innerHTML=
+"❌ Wrong password.";
+
+}
+
+}
+
+
+/* ADD NOTE */
 
 function addNote(){
 
-  const title=document.getElementById("noteTitle").value;
-  const text=document.getElementById("noteText").value;
+let title=document.getElementById("noteTitle").value;
+let text=document.getElementById("noteText").value;
 
-  if(title==="" || text===""){
-    alert("Please enter both title and note.");
-    return;
-  }
+if(title==="" || text===""){
+alert("Please enter title and note.");
+return;
+}
 
-  const note=document.createElement("div");
+let note=document.createElement("div");
 
-  note.className="note";
+note.className="note";
 
-  note.innerHTML=
-    "<h3>"+title+"</h3>"+
-    "<p>"+text+"</p>";
+note.innerHTML=
+"<h3>"+title+"</h3><p>"+text+"</p>";
 
-  document.getElementById("teacherNotes").appendChild(note);
+document.getElementById("newNotes").appendChild(note);
 
-  document.getElementById("noteTitle").value="";
-  document.getElementById("noteText").value="";
+document.getElementById("noteTitle").value="";
+document.getElementById("noteText").value="";
 
-  alert("Note added successfully!");
+alert("✅ Note added!");
+
 }
 
 </script>
