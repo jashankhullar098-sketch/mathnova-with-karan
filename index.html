@@ -2,321 +2,315 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MathNova with Karan</title>
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,Helvetica,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-background:#f5f7fb;
-color:#172033;
-padding-bottom:80px;
+  background:#f5f7fb;
+  color:#172033;
+  padding-bottom:80px;
 }
 
 button{
-border:0;
-cursor:pointer;
+  border:0;
+  cursor:pointer;
 }
 
 .top{
-background:linear-gradient(135deg,#172b70,#3867d6);
-color:white;
-padding:20px 18px 28px;
-border-radius:0 0 28px 28px;
+  background:linear-gradient(135deg,#172b70,#3867d6);
+  color:white;
+  padding:20px 18px 28px;
+  border-radius:0 0 28px 28px;
 }
 
 .topbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-font-size:23px;
-font-weight:bold;
+  font-size:23px;
+  font-weight:bold;
 }
 
 .bell{
-width:42px;
-height:42px;
-border-radius:50%;
-background:#ffffff22;
-color:white;
-font-size:19px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#ffffff22;
+  color:white;
+  font-size:19px;
 }
 
 .greeting{
-margin-top:24px;
+  margin-top:24px;
 }
 
 .greeting h1{
-font-size:24px;
+  font-size:24px;
 }
 
 .greeting p{
-margin-top:6px;
-opacity:.85;
+  margin-top:6px;
+  opacity:.85;
 }
 
 main{
-max-width:700px;
-margin:auto;
-padding:18px;
+  max-width:700px;
+  margin:auto;
+  padding:18px;
 }
 
 .page{
-display:none;
+  display:none;
 }
 
 .page.active{
-display:block;
+  display:block;
 }
 
 .section-title{
-margin:12px 0;
-font-size:20px;
+  margin:12px 0;
+  font-size:20px;
 }
 
 .card{
-background:white;
-border-radius:18px;
-padding:18px;
-margin-bottom:13px;
-box-shadow:0 3px 12px #00000010;
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:13px;
+  box-shadow:0 3px 12px #00000010;
 }
 
 .class-grid,
 .teacher-menu{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
 .class-card{
-background:white;
-border-radius:18px;
-padding:20px;
-box-shadow:0 3px 12px #00000010;
-cursor:pointer;
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 3px 12px #00000010;
+  cursor:pointer;
 }
 
 .class-card h3{
-color:#2449a5;
-margin-bottom:6px;
+  color:#2449a5;
+  margin-bottom:6px;
 }
 
 .class-icon{
-font-size:30px;
-margin-bottom:10px;
+  font-size:30px;
+  margin-bottom:10px;
 }
 
 .muted{
-color:#707b8d;
-font-size:13px;
-margin-top:5px;
+  color:#707b8d;
+  font-size:13px;
+  margin-top:5px;
 }
 
 .btn{
-background:#315fd4;
-color:white;
-padding:11px 15px;
-border-radius:10px;
-font-weight:bold;
-margin-top:10px;
+  background:#315fd4;
+  color:white;
+  padding:11px 15px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
 .btn-light{
-background:#e9efff;
-color:#2449a5;
-padding:10px 14px;
-border-radius:10px;
-font-weight:bold;
-margin-top:10px;
+  background:#e9efff;
+  color:#2449a5;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
 .chapter-row{
-display:flex;
-align-items:center;
-gap:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 .chapter-number{
-width:45px;
-height:45px;
-border-radius:13px;
-background:#e9efff;
-color:#2449a5;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-flex-shrink:0;
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  background:#e9efff;
+  color:#2449a5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  flex-shrink:0;
 }
 
 .chapter-info{
-flex:1;
+  flex:1;
 }
 
 .note{
-border-left:5px solid #315fd4;
+  border-left:5px solid #315fd4;
 }
 
 .question{
-line-height:1.5;
+  line-height:1.5;
 }
 
 .answer{
-display:none;
-margin-top:12px;
-padding:12px;
-background:#eaf7ec;
-border-radius:10px;
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  background:#eaf7ec;
+  border-radius:10px;
 }
 
 .live{
-border-left:5px solid #e5484d;
+  border-left:5px solid #e5484d;
 }
 
 .live-badge{
-display:inline-block;
-background:#e5484d;
-color:white;
-padding:5px 9px;
-border-radius:7px;
-font-size:11px;
-font-weight:bold;
-margin-bottom:8px;
+  display:inline-block;
+  background:#e5484d;
+  color:white;
+  padding:5px 9px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:8px;
 }
 
 .notification{
-border-left:5px solid #f2a900;
+  border-left:5px solid #f2a900;
 }
 
 .notification img{
-width:100%;
-max-height:280px;
-object-fit:cover;
-border-radius:12px;
-margin-bottom:12px;
+  width:100%;
+  max-height:280px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:12px;
 }
 
 input,
 textarea,
 select{
-width:100%;
-padding:13px;
-margin-top:9px;
-border:1px solid #d3d9e4;
-border-radius:10px;
-outline:none;
-background:white;
+  width:100%;
+  padding:13px;
+  margin-top:9px;
+  border:1px solid #d3d9e4;
+  border-radius:10px;
+  outline:none;
+  background:white;
 }
 
 textarea{
-min-height:110px;
-resize:vertical;
+  min-height:110px;
+  resize:vertical;
 }
 
 .teacher-option{
-background:#f7f9ff;
-border:1px solid #e1e7f5;
-border-radius:15px;
-padding:16px;
-text-align:left;
-cursor:pointer;
+  background:#f7f9ff;
+  border:1px solid #e1e7f5;
+  border-radius:15px;
+  padding:16px;
+  text-align:left;
+  cursor:pointer;
 }
 
 .teacher-option .emoji{
-font-size:27px;
-display:block;
-margin-bottom:8px;
+  font-size:27px;
+  display:block;
+  margin-bottom:8px;
 }
 
 .teacher-option b{
-color:#2449a5;
+  color:#2449a5;
 }
 
 .teacher-form{
-display:none;
-margin-top:18px;
-padding-top:18px;
-border-top:1px solid #e5e8ee;
+  display:none;
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #e5e8ee;
 }
 
 .profile{
-text-align:center;
+  text-align:center;
 }
 
 .avatar{
-width:78px;
-height:78px;
-border-radius:50%;
-background:#315fd4;
-color:white;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  background:#315fd4;
+  color:white;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
 }
 
 .message{
-margin-top:10px;
-font-size:14px;
+  margin-top:10px;
+  font-size:14px;
 }
 
 .bottom-nav{
-position:fixed;
-left:0;
-right:0;
-bottom:0;
-height:70px;
-background:white;
-box-shadow:0 -3px 15px #00000015;
-display:flex;
-justify-content:space-around;
-align-items:center;
-z-index:100;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:70px;
+  background:white;
+  box-shadow:0 -3px 15px #00000015;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:100;
 }
 
 .nav-item{
-background:none;
-color:#7b8494;
-font-size:11px;
-padding:5px;
+  background:none;
+  color:#7b8494;
+  font-size:11px;
+  padding:5px;
 }
 
 .nav-item span{
-display:block;
-font-size:21px;
-margin-bottom:3px;
+  display:block;
+  font-size:21px;
+  margin-bottom:3px;
 }
 
 .nav-item.active{
-color:#315fd4;
-font-weight:bold;
+  color:#315fd4;
+  font-weight:bold;
 }
 
 .empty{
-text-align:center;
-padding:25px;
-color:#707b8d;
+  text-align:center;
+  padding:25px;
+  color:#707b8d;
 }
 
 .file{
-padding:10px 0;
-}
-
-@media(max-width:420px){
-.teacher-menu{
-grid-template-columns:1fr 1fr;
-}
+  padding:10px 0;
 }
 </style>
 </head>
@@ -327,62 +321,39 @@ grid-template-columns:1fr 1fr;
 
 <div class="topbar">
 
-<div class="logo">
-📐 MathNova
-</div>
+<div class="logo">📐 MathNova</div>
 
-<button class="bell" onclick="showNotifications()">
-🔔
-</button>
+<button class="bell" onclick="showNotifications()">🔔</button>
 
 </div>
 
 <div class="greeting">
-
-<h1>
-Hello, Student 👋
-</h1>
-
-<p>
-Learn Mathematics with Karan
-</p>
-
+<h1>Hello, Student 👋</h1>
+<p>Learn Mathematics with Karan</p>
 </div>
 
 </header>
 
 <main>
 
+<!-- HOME -->
+
 <section id="home" class="page active">
 
-<h2 class="section-title">
-Choose your class
-</h2>
+<h2 class="section-title">Choose your class</h2>
 
 <div class="class-grid">
 
 <div class="class-card" onclick="selectClass(11)">
-
 <div class="class-icon">📘</div>
-
 <h3>Class 11</h3>
-
-<p class="muted">
-Mathematics
-</p>
-
+<p class="muted">Mathematics</p>
 </div>
 
 <div class="class-card" onclick="selectClass(12)">
-
 <div class="class-icon">📕</div>
-
 <h3>Class 12</h3>
-
-<p class="muted">
-Mathematics
-</p>
-
+<p class="muted">Mathematics</p>
 </div>
 
 </div>
@@ -423,6 +394,9 @@ Practice Now
 
 </section>
 
+
+<!-- COURSES -->
+
 <section id="courses" class="page">
 
 <button class="btn" onclick="showPage('home')">
@@ -437,6 +411,9 @@ Mathematics
 
 </section>
 
+
+<!-- CHAPTER -->
+
 <section id="chapter" class="page">
 
 <button class="btn" onclick="backToCourses()">
@@ -446,7 +423,6 @@ Mathematics
 <div class="card">
 
 <h2 id="chapterTitle"></h2>
-
 <p id="chapterClass" class="muted"></p>
 
 </div>
@@ -456,11 +432,9 @@ Mathematics
 <h3>📺 Lectures</h3>
 
 <div id="chapterLectures">
-
 <p class="muted">
 Chapter lectures will appear here.
 </p>
-
 </div>
 
 </div>
@@ -495,71 +469,78 @@ Practice
 
 </section>
 
+
+<!-- NOTES -->
+
 <section id="notes" class="page">
 
-<h2 class="section-title">
-📝 Notes / PDFs
-</h2>
+<h2 class="section-title">📝 Notes / PDFs</h2>
 
 <div id="notesContainer"></div>
 
 </section>
 
+
+<!-- LIVE -->
+
 <section id="live" class="page">
 
-<h2 class="section-title">
-🔴 Live Classes
-</h2>
+<h2 class="section-title">🔴 Live Classes</h2>
 
 <div id="liveContainer"></div>
 
 </section>
 
+
+<!-- RECORDED -->
+
 <section id="recorded" class="page">
 
-<h2 class="section-title">
-🎥 Recorded Classes
-</h2>
+<h2 class="section-title">🎥 Recorded Classes</h2>
 
 <div id="recordedContainer"></div>
 
 </section>
 
+
+<!-- DPP -->
+
 <section id="dpp" class="page">
 
-<h2 class="section-title">
-📚 Daily Practice Problems
-</h2>
+<h2 class="section-title">📚 Daily Practice Problems</h2>
 
 <div id="dppContainer"></div>
 
 </section>
 
+
+<!-- WEEKLY -->
+
 <section id="weekly" class="page">
 
-<h2 class="section-title">
-📝 Weekly Tests
-</h2>
+<h2 class="section-title">📝 Weekly Tests</h2>
 
 <div id="weeklyContainer"></div>
 
 </section>
 
+
+<!-- NOTIFICATIONS -->
+
 <section id="notifications" class="page">
 
-<h2 class="section-title">
-🔔 Notifications
-</h2>
+<h2 class="section-title">🔔 Notifications</h2>
 
 <div id="notificationContainer"></div>
 
 </section>
 
+
+<!-- PRACTICE -->
+
 <section id="practice" class="page">
 
-<h2 class="section-title">
-❓ Important Questions
-</h2>
+<h2 class="section-title">❓ Important Questions</h2>
 
 <div class="card question">
 
@@ -580,6 +561,7 @@ A ∩ B = {3}
 
 </div>
 
+
 <div class="card question">
 
 <b>
@@ -594,14 +576,21 @@ Show Answer
 </button>
 
 <div id="a2" class="answer">
+
 D = b² − 4ac
+
 <br>
+
 D = 25 − 24
+
 <br>
+
 <b>D = 1</b>
+
 </div>
 
 </div>
+
 
 <div class="card question">
 
@@ -624,6 +613,10 @@ Show Answer
 <div id="teacherQuestions"></div>
 
 </section>
+
+
+<!-- PROFILE / TEACHER -->
+
 <section id="profile" class="page">
 
 <div class="card profile">
@@ -639,6 +632,7 @@ MathNova Learner
 </p>
 
 </div>
+
 
 <div class="card">
 
@@ -660,13 +654,16 @@ Login
 
 <p id="loginMessage" class="message"></p>
 
+
 <div id="teacherDashboard" style="display:none;">
 
 <h3 style="margin-top:20px;">
 Teacher Dashboard
 </h3>
 
+
 <div class="teacher-menu">
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('lecture')">
@@ -675,11 +672,10 @@ onclick="openTeacherForm('lecture')">
 
 <b>Add Lecture</b>
 
-<p class="muted">
-Add a lecture
-</p>
+<p class="muted">Add a lecture</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('live')">
@@ -688,11 +684,10 @@ onclick="openTeacherForm('live')">
 
 <b>Live Class</b>
 
-<p class="muted">
-Create live class
-</p>
+<p class="muted">Create live class</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('recorded')">
@@ -701,11 +696,10 @@ onclick="openTeacherForm('recorded')">
 
 <b>Recorded Class</b>
 
-<p class="muted">
-Add finished live recording
-</p>
+<p class="muted">Add recording</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('note')">
@@ -714,11 +708,10 @@ onclick="openTeacherForm('note')">
 
 <b>Upload PDF Notes</b>
 
-<p class="muted">
-Upload PDF notes
-</p>
+<p class="muted">Upload PDF notes</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('dpp')">
@@ -727,11 +720,10 @@ onclick="openTeacherForm('dpp')">
 
 <b>Add DPP</b>
 
-<p class="muted">
-Daily practice
-</p>
+<p class="muted">Daily practice</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('weekly')">
@@ -740,11 +732,10 @@ onclick="openTeacherForm('weekly')">
 
 <b>Weekly Test</b>
 
-<p class="muted">
-Upload weekly test
-</p>
+<p class="muted">Upload test</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('question')">
@@ -753,11 +744,10 @@ onclick="openTeacherForm('question')">
 
 <b>Add Question</b>
 
-<p class="muted">
-Add practice
-</p>
+<p class="muted">Add practice question</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('notification')">
@@ -766,11 +756,10 @@ onclick="openTeacherForm('notification')">
 
 <b>Notification</b>
 
-<p class="muted">
-Picture + message
-</p>
+<p class="muted">Send notification</p>
 
 </div>
+
 
 <div class="teacher-option"
 onclick="openTeacherForm('chapter')">
@@ -779,38 +768,32 @@ onclick="openTeacherForm('chapter')">
 
 <b>Chapters</b>
 
-<p class="muted">
-Manage chapters
-</p>
+<p class="muted">Add chapter</p>
 
 </div>
 
 </div>
 
+
+<!-- LECTURE FORM -->
 
 <div id="lectureForm" class="teacher-form">
 
 <h3>📺 Add Lecture</h3>
 
-<input
-id="lectureTitle"
-placeholder="Lecture title"
->
+<input id="lectureTitle"
+placeholder="Lecture title">
 
 <select id="lectureClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="lectureChapter"
-placeholder="Chapter name"
->
+<input id="lectureChapter"
+placeholder="Chapter name">
 
-<input
-id="lectureLink"
-placeholder="Video / lecture link"
->
+<input id="lectureLink"
+placeholder="YouTube / lecture link">
 
 <button class="btn" onclick="addLecture()">
 Publish Lecture
@@ -819,39 +802,29 @@ Publish Lecture
 </div>
 
 
+<!-- LIVE FORM -->
+
 <div id="liveForm" class="teacher-form">
 
 <h3>🔴 Create Live Class</h3>
 
-<input
-id="liveTitle"
-placeholder="Live class title"
->
+<input id="liveTitle"
+placeholder="Live class title">
 
 <select id="liveClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="liveChapter"
-placeholder="Chapter"
->
+<input id="liveChapter"
+placeholder="Chapter">
 
-<input
-id="liveDate"
-type="date"
->
+<input id="liveDate" type="date">
 
-<input
-id="liveTime"
-type="time"
->
+<input id="liveTime" type="time">
 
-<input
-id="liveLink"
-placeholder="Live class link"
->
+<input id="liveLink"
+placeholder="Live class link">
 
 <button class="btn" onclick="addLiveClass()">
 Publish Live Class
@@ -860,34 +833,27 @@ Publish Live Class
 </div>
 
 
+<!-- RECORDED FORM -->
+
 <div id="recordedForm" class="teacher-form">
 
 <h3>🎥 Add Recorded Class</h3>
 
-<input
-id="recordedTitle"
-placeholder="Recorded class title"
->
+<input id="recordedTitle"
+placeholder="Recorded class title">
 
 <select id="recordedClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="recordedChapter"
-placeholder="Chapter"
->
+<input id="recordedChapter"
+placeholder="Chapter">
 
-<input
-id="recordedDate"
-type="date"
->
+<input id="recordedDate" type="date">
 
-<input
-id="recordedLink"
-placeholder="YouTube / video recording link"
->
+<input id="recordedLink"
+placeholder="YouTube / recording link">
 
 <button class="btn" onclick="addRecorded()">
 Publish Recording
@@ -896,24 +862,22 @@ Publish Recording
 </div>
 
 
+<!-- NOTE FORM -->
+
 <div id="noteForm" class="teacher-form">
 
 <h3>📄 Upload PDF Notes</h3>
 
-<input
-id="noteTitle"
-placeholder="Note title"
->
+<input id="noteTitle"
+placeholder="Note title">
 
 <select id="noteClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="noteChapter"
-placeholder="Chapter"
->
+<input id="noteChapter"
+placeholder="Chapter">
 
 <input
 id="noteFile"
@@ -924,8 +888,8 @@ accept="application/pdf"
 
 <textarea
 id="noteText"
-placeholder="Optional note description"
-></textarea>
+placeholder="Optional description">
+</textarea>
 
 <button class="btn" onclick="addNote()">
 Upload & Publish PDF
@@ -936,24 +900,22 @@ Upload & Publish PDF
 </div>
 
 
+<!-- DPP FORM -->
+
 <div id="dppForm" class="teacher-form">
 
 <h3>📚 Add DPP</h3>
 
-<input
-id="dppTitle"
-placeholder="DPP title"
->
+<input id="dppTitle"
+placeholder="DPP title">
 
 <select id="dppClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="dppChapter"
-placeholder="Chapter"
->
+<input id="dppChapter"
+placeholder="Chapter">
 
 <input
 id="dppFile"
@@ -964,8 +926,8 @@ accept=".pdf,image/*"
 
 <textarea
 id="dppText"
-placeholder="Optional DPP text / instructions"
-></textarea>
+placeholder="Optional instructions">
+</textarea>
 
 <button class="btn" onclick="addDpp()">
 Upload & Publish DPP
@@ -976,24 +938,21 @@ Upload & Publish DPP
 </div>
 
 
+<!-- WEEKLY FORM -->
+
 <div id="weeklyForm" class="teacher-form">
 
 <h3>📝 Upload Weekly Test</h3>
 
-<input
-id="weeklyTitle"
-placeholder="Weekly test title"
->
+<input id="weeklyTitle"
+placeholder="Weekly test title">
 
 <select id="weeklyClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="weeklyDate"
-type="date"
->
+<input id="weeklyDate" type="date">
 
 <input
 id="weeklyFile"
@@ -1004,8 +963,8 @@ accept=".pdf,image/*"
 
 <textarea
 id="weeklyText"
-placeholder="Optional test instructions"
-></textarea>
+placeholder="Optional instructions">
+</textarea>
 
 <button class="btn" onclick="addWeekly()">
 Upload & Publish Test
@@ -1016,19 +975,17 @@ Upload & Publish Test
 </div>
 
 
+<!-- QUESTION FORM -->
+
 <div id="questionForm" class="teacher-form">
 
 <h3>❓ Add Important Question</h3>
 
-<input
-id="questionText"
-placeholder="Question"
->
+<input id="questionText"
+placeholder="Question">
 
-<input
-id="questionAnswer"
-placeholder="Answer"
->
+<input id="questionAnswer"
+placeholder="Answer">
 
 <select id="questionClass">
 <option value="11">Class 11</option>
@@ -1042,19 +999,19 @@ Publish Question
 </div>
 
 
+<!-- NOTIFICATION FORM -->
+
 <div id="notificationForm" class="teacher-form">
 
 <h3>🔔 Send Notification</h3>
 
-<input
-id="notificationTitle"
-placeholder="Notification title"
->
+<input id="notificationTitle"
+placeholder="Notification title">
 
 <textarea
 id="notificationText"
-placeholder="Notification message"
-></textarea>
+placeholder="Notification message">
+</textarea>
 
 <input
 id="notificationFile"
@@ -1072,6 +1029,8 @@ Upload Picture & Send
 </div>
 
 
+<!-- CHAPTER FORM -->
+
 <div id="chapterForm" class="teacher-form">
 
 <h3>📚 Manage Chapters</h3>
@@ -1081,10 +1040,8 @@ Upload Picture & Send
 <option value="12">Class 12</option>
 </select>
 
-<input
-id="newChapter"
-placeholder="New chapter name"
->
+<input id="newChapter"
+placeholder="New chapter name">
 
 <button class="btn" onclick="addChapter()">
 Add Chapter
@@ -1098,9 +1055,10 @@ Add Chapter
 
 </section>
 
-
 </main>
 
+
+<!-- BOTTOM NAV -->
 
 <nav class="bottom-nav">
 
@@ -1113,6 +1071,7 @@ Home
 
 </button>
 
+
 <button
 class="nav-item"
 onclick="navigate(this,'courses')">
@@ -1121,6 +1080,7 @@ onclick="navigate(this,'courses')">
 Courses
 
 </button>
+
 
 <button
 class="nav-item"
@@ -1131,6 +1091,7 @@ Notes
 
 </button>
 
+
 <button
 class="nav-item"
 onclick="navigate(this,'practice')">
@@ -1139,6 +1100,7 @@ onclick="navigate(this,'practice')">
 Practice
 
 </button>
+
 
 <button
 class="nav-item"
@@ -1150,6 +1112,8 @@ Profile
 </button>
 
 </nav>
+
+
 <!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
@@ -1158,11 +1122,12 @@ Profile
 
 <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-storage-compat.js"></script>
 
+
 <script>
 
-/* ==========================
+/* =========================
    FIREBASE
-========================== */
+========================= */
 
 const firebaseConfig = {
 
@@ -1189,10 +1154,13 @@ measurementId:
 
 };
 
+
 firebase.initializeApp(firebaseConfig);
+
 
 const database =
 firebase.database();
+
 
 const storage =
 firebase.storage();
@@ -1200,30 +1168,42 @@ firebase.storage();
 
 const refs = {
 
-notes: database.ref("notes"),
+notes:database.ref("notes"),
 
-dpp: database.ref("dpp"),
+dpp:database.ref("dpp"),
 
-weekly: database.ref("weeklyTests"),
+weekly:database.ref("weeklyTests"),
 
-lectures: database.ref("lectures"),
+lectures:database.ref("lectures"),
 
-live: database.ref("liveClasses"),
+live:database.ref("liveClasses"),
 
-recorded: database.ref("recordedClasses"),
+recorded:database.ref("recordedClasses"),
 
-notifications: database.ref("notifications"),
+notifications:database.ref("notifications"),
 
-questions: database.ref("questions")
+questions:database.ref("questions")
 
 };
 
 
-/* ==========================
-   CHAPTERS
-========================== */
+/* =========================
+   DATA
+========================= */
 
-let chapters11 = [
+let notes=[];
+let dpp=[];
+let weekly=[];
+let lectures=[];
+let liveClasses=[];
+let recorded=[];
+let notifications=[];
+let questions=[];
+
+let selectedClass=11;
+
+
+let chapters11=[
 
 "Sets",
 "Relations and Functions",
@@ -1243,7 +1223,7 @@ let chapters11 = [
 ];
 
 
-let chapters12 = [
+let chapters12=[
 
 "Relations and Functions",
 "Inverse Trigonometric Functions",
@@ -1262,25 +1242,13 @@ let chapters12 = [
 ];
 
 
-let selectedClass = 11;
-
-let notes = [];
-let dpp = [];
-let weekly = [];
-let lectures = [];
-let liveClasses = [];
-let recorded = [];
-let notifications = [];
-let questions = [];
-
-
-/* ==========================
-   SAFETY
-========================== */
+/* =========================
+   SAFE
+========================= */
 
 function safe(text){
 
-return String(text || "")
+return String(text||"")
 
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
@@ -1291,29 +1259,36 @@ return String(text || "")
 }
 
 
-function safeURL(url){
-
-return String(url || "")
-.replace(/'/g,"%27");
-
-}
-
-
 function value(id){
 
-let element =
+const el=
 document.getElementById(id);
 
-return element
-? element.value.trim()
-: "";
+return el
+?el.value.trim()
+:"";
 
 }
 
 
-/* ==========================
-   PAGE SYSTEM
-========================== */
+function openLink(url){
+
+if(!url){
+
+alert("No link available.");
+
+return;
+
+}
+
+window.open(url,"_blank");
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
 
 function showPage(id){
 
@@ -1326,7 +1301,7 @@ page.classList.remove("active");
 });
 
 
-let page =
+const page=
 document.getElementById(id);
 
 
@@ -1337,19 +1312,14 @@ page.classList.add("active");
 }
 
 
-window.scrollTo({
-
-top:0,
-behavior:"smooth"
-
-});
+window.scrollTo(0,0);
 
 }
 
 
-/* ==========================
+/* =========================
    NAVIGATION
-========================== */
+========================= */
 
 function navigate(button,id){
 
@@ -1361,64 +1331,63 @@ btn.classList.remove("active");
 
 });
 
+
 button.classList.add("active");
 
 showPage(id);
 
 
-if(id === "courses"){
-
+if(id==="courses")
 loadCourses(selectedClass);
 
-}
-
-if(id === "notes"){
-
+if(id==="notes")
 renderNotes();
 
-}
-
-if(id === "live"){
-
+if(id==="live")
 renderLive();
 
-}
-
-if(id === "recorded"){
-
+if(id==="recorded")
 renderRecorded();
 
-}
-
-if(id === "dpp"){
-
+if(id==="dpp")
 renderDpp();
 
-}
-
-if(id === "weekly"){
-
+if(id==="weekly")
 renderWeekly();
 
-}
-
-if(id === "notifications"){
-
+if(id==="notifications")
 renderNotifications();
 
-}
+if(id==="practice")
+renderQuestions();
 
 }
 
 
-/* ==========================
+function setActiveNav(index){
+
+const buttons=
+document.querySelectorAll(".nav-item");
+
+buttons.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+if(buttons[index])
+buttons[index].classList.add("active");
+
+}
+
+
+/* =========================
    CLASS
-========================== */
+========================= */
 
 function selectClass(classNumber){
 
-selectedClass =
-classNumber;
+selectedClass=classNumber;
 
 loadCourses(classNumber);
 
@@ -1429,72 +1398,41 @@ setActiveNav(1);
 }
 
 
-/* ==========================
-   NAV ACTIVE
-========================== */
-
-function setActiveNav(index){
-
-let buttons =
-document.querySelectorAll(".nav-item");
-
-buttons.forEach(function(btn){
-
-btn.classList.remove("active");
-
-});
-
-if(buttons[index]){
-
-buttons[index].classList.add("active");
-
-}
-
-}
-
-
-/* ==========================
+/* =========================
    COURSES
-========================== */
+========================= */
 
 function loadCourses(classNumber){
 
-let chapters =
-classNumber === 11
-? chapters11
-: chapters12;
+const chapters=
+classNumber===11
+?chapters11
+:chapters12;
 
 
 document
 .getElementById("courseTitle")
-.textContent =
-"Class " +
-classNumber +
-" Mathematics";
+.textContent=
+"Class "+classNumber+" Mathematics";
 
 
-let container =
+const container=
 document.getElementById("chapterList");
 
 
-container.innerHTML = "";
+container.innerHTML="";
 
 
 chapters.forEach(function(chapter,index){
 
-let card =
-document.createElement("div");
+container.innerHTML+=`
 
-card.className =
-"card";
-
-
-card.innerHTML = `
+<div class="card">
 
 <div class="chapter-row">
 
 <div class="chapter-number">
-${index + 1}
+${index+1}
 </div>
 
 <div class="chapter-info">
@@ -1519,74 +1457,73 @@ Open
 
 </div>
 
+</div>
+
 `;
-
-
-container.appendChild(card);
 
 });
 
 }
 
 
-/* ==========================
+/* =========================
    CHAPTER
-========================== */
+========================= */
 
 function openChapter(index){
 
-let chapters =
-selectedClass === 11
-? chapters11
-: chapters12;
+const chapters=
+selectedClass===11
+?chapters11
+:chapters12;
 
 
-let name =
+const name=
 chapters[index];
 
 
 document
 .getElementById("chapterTitle")
-.textContent =
-"📖 " + name;
+.textContent=
+"📖 "+name;
 
 
 document
 .getElementById("chapterClass")
-.textContent =
-"Class " +
-selectedClass +
+.textContent=
+"Class "+
+selectedClass+
 " • Mathematics • MathNova with Karan";
 
 
-let chapterLectures =
+const box=
+document.getElementById("chapterLectures");
+
+
+const chapterLectures=
 lectures.filter(function(item){
 
-return String(item.classNumber) ===
+return String(item.classNumber)===
 String(selectedClass)
 &&
-item.chapter === name;
+item.chapter===name;
 
 });
 
 
-let box =
-document.getElementById("chapterLectures");
+box.innerHTML="";
 
 
-box.innerHTML = "";
+if(chapterLectures.length===0){
 
-
-if(chapterLectures.length === 0){
-
-box.innerHTML =
+box.innerHTML=
 '<p class="muted">No lecture uploaded for this chapter yet.</p>';
 
 }else{
 
 chapterLectures.forEach(function(item){
 
-box.innerHTML += `
+box.innerHTML+=`
 
 <div class="card">
 
@@ -1601,12 +1538,12 @@ ${safe(item.chapter)}
 ${
 item.link
 ?
-`<button class="btn"
-onclick="openLink('${safeURL(item.link)}')">
-Watch Lecture
+`<button
+class="btn"
+onclick="openLink('${safe(item.link)}')">
+▶ Watch Lecture
 </button>`
-:
-""
+:""
 }
 
 </div>
@@ -1623,10 +1560,6 @@ showPage("chapter");
 }
 
 
-/* ==========================
-   BACK
-========================== */
-
 function backToCourses(){
 
 loadCourses(selectedClass);
@@ -1636,51 +1569,28 @@ showPage("courses");
 }
 
 
-/* ==========================
-   OPEN LINK
-========================== */
-
-function openLink(url){
-
-if(!url){
-
-alert("No link has been added yet.");
-
-return;
-
-}
-
-window.open(url,"_blank");
-
-}
-
-
-/* ==========================
+/* =========================
    ANSWERS
-========================== */
+========================= */
 
 function toggleAnswer(id){
 
-let answer =
+const answer=
 document.getElementById(id);
 
-if(!answer){
+if(!answer)return;
 
-return;
-
-}
-
-answer.style.display =
-answer.style.display === "block"
-? "none"
-: "block";
+answer.style.display=
+answer.style.display==="block"
+?"none"
+:"block";
 
 }
 
 
-/* ==========================
-   NOTIFICATION BUTTON
-========================== */
+/* =========================
+   NOTIFICATIONS
+========================= */
 
 function showNotifications(){
 
@@ -1688,31 +1598,681 @@ renderNotifications();
 
 showPage("notifications");
 
-}/* ==========================
+}
+
+
+/* =========================
+   TEACHER LOGIN
+========================= */
+
+function teacherLogin(){
+
+const password=
+document.getElementById("teacherPassword").value;
+
+
+const message=
+document.getElementById("loginMessage");
+
+
+if(password==="Coco123"){
+
+document
+.getElementById("teacherDashboard")
+.style.display="block";
+
+
+message.textContent=
+"✅ Teacher login successful.";
+
+
+message.style.color="green";
+
+}else{
+
+message.textContent=
+"❌ Incorrect password.";
+
+message.style.color="red";
+
+}
+
+}
+
+
+/* =========================
+   TEACHER FORM
+========================= */
+
+function openTeacherForm(type){
+
+document
+.querySelectorAll(".teacher-form")
+.forEach(function(form){
+
+form.style.display="none";
+
+});
+
+
+const form=
+document.getElementById(type+"Form");
+
+
+if(form){
+
+form.style.display="block";
+
+form.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+}
+
+
+/* =========================
+   UPLOAD FILE
+========================= */
+
+async function uploadFile(file,folder,statusId){
+
+if(!file)return null;
+
+
+const status=
+document.getElementById(statusId);
+
+
+if(status)
+status.textContent="Uploading...";
+
+
+const fileName=
+Date.now()+"_"+file.name;
+
+
+const storageRef=
+storage.ref(folder+"/"+fileName);
+
+
+const snapshot=
+await storageRef.put(file);
+
+
+const url=
+await snapshot.ref.getDownloadURL();
+
+
+if(status)
+status.textContent="Upload complete.";
+
+
+return url;
+
+}
+
+
+/* =========================
+   ADD NOTE
+========================= */
+
+async function addNote(){
+
+try{
+
+const file=
+document.getElementById("noteFile")
+.files[0];
+
+
+const data={
+
+title:value("noteTitle"),
+
+classNumber:value("noteClass"),
+
+chapter:value("noteChapter"),
+
+text:value("noteText"),
+
+createdAt:Date.now()
+
+};
+
+
+if(!data.title||
+!data.chapter||
+!file){
+
+alert(
+"Please enter title, chapter and select a PDF."
+);
+
+return;
+
+}
+
+
+if(file.type!=="application/pdf"){
+
+alert("Please select a PDF file.");
+
+return;
+
+}
+
+
+data.url=
+await uploadFile(
+file,
+"notes",
+"noteStatus"
+);
+
+
+await refs.notes.push(data);
+
+
+alert(
+"✅ PDF Notes published successfully!"
+);
+
+
+document.getElementById("noteTitle").value="";
+document.getElementById("noteChapter").value="";
+document.getElementById("noteText").value="";
+document.getElementById("noteFile").value="";
+
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"❌ Upload failed: "+error.message
+);
+
+}
+
+}
+
+
+/* =========================
+   ADD LECTURE
+========================= */
+
+async function addLecture(){
+
+const data={
+
+title:value("lectureTitle"),
+
+classNumber:value("lectureClass"),
+
+chapter:value("lectureChapter"),
+
+link:value("lectureLink"),
+
+createdAt:Date.now()
+
+};
+
+
+if(!data.title||
+!data.chapter){
+
+alert(
+"Please enter lecture title and chapter."
+);
+
+return;
+
+}
+
+
+await refs.lectures.push(data);
+
+alert("✅ Lecture published!");
+
+}
+
+
+/* =========================
+   ADD LIVE
+========================= */
+
+async function addLiveClass(){
+
+const data={
+
+title:value("liveTitle"),
+
+classNumber:value("liveClass"),
+
+chapter:value("liveChapter"),
+
+date:value("liveDate"),
+
+time:value("liveTime"),
+
+link:value("liveLink"),
+
+createdAt:Date.now()
+
+};
+
+
+if(
+!data.title||
+!data.chapter||
+!data.date||
+!data.time
+){
+
+alert(
+"Please complete live class details."
+);
+
+return;
+
+}
+
+
+await refs.live.push(data);
+
+alert("🔴 Live class published!");
+
+}
+
+
+/* =========================
+   ADD RECORDED
+========================= */
+
+async function addRecorded(){
+
+const data={
+
+title:value("recordedTitle"),
+
+classNumber:value("recordedClass"),
+
+chapter:value("recordedChapter"),
+
+date:value("recordedDate"),
+
+link:value("recordedLink"),
+
+createdAt:Date.now()
+
+};
+
+
+if(
+!data.title||
+!data.chapter||
+!data.link
+){
+
+alert(
+"Enter title, chapter and recording link."
+);
+
+return;
+
+}
+
+
+await refs.recorded.push(data);
+
+alert("🎥 Recording published!");
+
+}
+
+
+/* =========================
+   ADD DPP
+========================= */
+
+async function addDpp(){
+
+try{
+
+const file=
+document.getElementById("dppFile")
+.files[0];
+
+
+const data={
+
+title:value("dppTitle"),
+
+classNumber:value("dppClass"),
+
+chapter:value("dppChapter"),
+
+text:value("dppText"),
+
+createdAt:Date.now()
+
+};
+
+
+if(
+!data.title||
+!data.chapter||
+!file
+){
+
+alert(
+"Complete DPP details and select a file."
+);
+
+return;
+
+}
+
+
+data.url=
+await uploadFile(
+file,
+"dpp",
+"dppStatus"
+);
+
+
+await refs.dpp.push(data);
+
+
+alert("✅ DPP published!");
+
+}catch(error){
+
+alert(
+"❌ DPP upload failed: "+
+error.message
+);
+
+}
+
+}
+
+
+/* =========================
+   ADD WEEKLY
+========================= */
+
+async function addWeekly(){
+
+try{
+
+const file=
+document.getElementById("weeklyFile")
+.files[0];
+
+
+const data={
+
+title:value("weeklyTitle"),
+
+classNumber:value("weeklyClass"),
+
+date:value("weeklyDate"),
+
+text:value("weeklyText"),
+
+createdAt:Date.now()
+
+};
+
+
+if(
+!data.title||
+!file
+){
+
+alert(
+"Enter title and select the test file."
+);
+
+return;
+
+}
+
+
+data.url=
+await uploadFile(
+file,
+"weeklyTests",
+"weeklyStatus"
+);
+
+
+await refs.weekly.push(data);
+
+
+alert("✅ Weekly test published!");
+
+}catch(error){
+
+alert(
+"❌ Weekly test upload failed: "+
+error.message
+);
+
+}
+
+}
+
+
+/* =========================
+   ADD QUESTION
+========================= */
+
+async function addQuestion(){
+
+const data={
+
+question:value("questionText"),
+
+answer:value("questionAnswer"),
+
+classNumber:value("questionClass"),
+
+createdAt:Date.now()
+
+};
+
+
+if(
+!data.question||
+!data.answer
+){
+
+alert(
+"Please enter question and answer."
+);
+
+return;
+
+}
+
+
+await refs.questions.push(data);
+
+
+alert("✅ Question published!");
+
+}
+
+
+/* =========================
+   ADD NOTIFICATION
+========================= */
+
+async function addNotification(){
+
+try{
+
+const file=
+document.getElementById("notificationFile")
+.files[0];
+
+
+const data={
+
+title:value("notificationTitle"),
+
+text:value("notificationText"),
+
+createdAt:Date.now()
+
+};
+
+
+if(
+!data.title||
+!data.text
+){
+
+alert(
+"Enter notification title and message."
+);
+
+return;
+
+}
+
+
+if(file){
+
+if(!file.type.startsWith("image/")){
+
+alert("Please select an image.");
+
+return;
+
+}
+
+
+data.imageUrl=
+await uploadFile(
+file,
+"notifications",
+"notificationStatus"
+);
+
+}
+
+
+await refs.notifications.push(data);
+
+
+alert("🔔 Notification sent!");
+
+}catch(error){
+
+alert(
+"❌ Notification failed: "+
+error.message
+);
+
+}
+
+}
+
+
+/* =========================
+   ADD CHAPTER
+========================= */
+
+function addChapter(){
+
+const classNumber=
+value("manageClass");
+
+
+const chapter=
+value("newChapter");
+
+
+if(!chapter){
+
+alert("Enter a chapter name.");
+
+return;
+
+}
+
+
+if(classNumber==="11"){
+
+chapters11.push(chapter);
+
+}else{
+
+chapters12.push(chapter);
+
+}
+
+
+document.getElementById("newChapter").value="";
+
+
+if(
+selectedClass===Number(classNumber)
+){
+
+loadCourses(selectedClass);
+
+}
+
+
+alert(
+"✅ Chapter added to Class "+
+classNumber
+);
+
+}
+
+
+/* =========================
    RENDER NOTES
-========================== */
+========================= */
 
 function renderNotes(){
 
-let container =
+const container=
 document.getElementById("notesContainer");
 
-container.innerHTML = "";
 
-if(notes.length === 0){
+if(!container)return;
 
-container.innerHTML = `
+
+container.innerHTML="";
+
+
+if(notes.length===0){
+
+container.innerHTML=`
+
 <div class="card empty">
 📝 No notes uploaded yet.
 </div>
+
 `;
 
 return;
+
 }
+
 
 notes.forEach(function(note){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card note">
 
@@ -1734,22 +2294,18 @@ note.text
 `<p style="margin-top:10px">
 ${safe(note.text)}
 </p>`
-:
-""
+:""
 }
 
 ${
 note.url
 ?
-`
-<button
+`<button
 class="btn"
-onclick="openLink('${safeURL(note.url)}')">
+onclick="openLink('${safe(note.url)}')">
 📄 Open PDF
-</button>
-`
-:
-""
+</button>`
+:""
 }
 
 </div>
@@ -1761,31 +2317,40 @@ onclick="openLink('${safeURL(note.url)}')">
 }
 
 
-/* ==========================
+/* =========================
    RENDER LIVE
-========================== */
+========================= */
 
 function renderLive(){
 
-let container =
+const container=
 document.getElementById("liveContainer");
 
-container.innerHTML = "";
 
-if(liveClasses.length === 0){
+if(!container)return;
 
-container.innerHTML = `
+
+container.innerHTML="";
+
+
+if(liveClasses.length===0){
+
+container.innerHTML=`
+
 <div class="card empty">
 🔴 No live classes scheduled.
 </div>
+
 `;
 
 return;
+
 }
+
 
 liveClasses.forEach(function(item){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card live">
 
@@ -1812,15 +2377,12 @@ ${safe(item.chapter)}
 ${
 item.link
 ?
-`
-<button
+`<button
 class="btn"
-onclick="openLink('${safeURL(item.link)}')">
+onclick="openLink('${safe(item.link)}')">
 Join Class
-</button>
-`
-:
-""
+</button>`
+:""
 }
 
 </div>
@@ -1832,31 +2394,40 @@ Join Class
 }
 
 
-/* ==========================
+/* =========================
    RENDER RECORDED
-========================== */
+========================= */
 
 function renderRecorded(){
 
-let container =
+const container=
 document.getElementById("recordedContainer");
 
-container.innerHTML = "";
 
-if(recorded.length === 0){
+if(!container)return;
 
-container.innerHTML = `
+
+container.innerHTML="";
+
+
+if(recorded.length===0){
+
+container.innerHTML=`
+
 <div class="card empty">
 🎥 No recorded classes yet.
 </div>
+
 `;
 
 return;
+
 }
+
 
 recorded.forEach(function(item){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card">
 
@@ -1875,15 +2446,12 @@ ${safe(item.date)}
 ${
 item.link
 ?
-`
-<button
+`<button
 class="btn"
-onclick="openLink('${safeURL(item.link)}')">
+onclick="openLink('${safe(item.link)}')">
 ▶ Watch Recording
-</button>
-`
-:
-""
+</button>`
+:""
 }
 
 </div>
@@ -1895,31 +2463,40 @@ onclick="openLink('${safeURL(item.link)}')">
 }
 
 
-/* ==========================
+/* =========================
    RENDER DPP
-========================== */
+========================= */
 
 function renderDpp(){
 
-let container =
+const container=
 document.getElementById("dppContainer");
 
-container.innerHTML = "";
 
-if(dpp.length === 0){
+if(!container)return;
 
-container.innerHTML = `
+
+container.innerHTML="";
+
+
+if(dpp.length===0){
+
+container.innerHTML=`
+
 <div class="card empty">
 📚 No DPP uploaded yet.
 </div>
+
 `;
 
 return;
+
 }
+
 
 dpp.forEach(function(item){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card">
 
@@ -1936,27 +2513,21 @@ ${safe(item.chapter)}
 ${
 item.text
 ?
-`
-<p style="margin-top:10px">
+`<p style="margin-top:10px">
 ${safe(item.text)}
-</p>
-`
-:
-""
+</p>`
+:""
 }
 
 ${
 item.url
 ?
-`
-<button
+`<button
 class="btn"
-onclick="openLink('${safeURL(item.url)}')">
+onclick="openLink('${safe(item.url)}')">
 Open DPP
-</button>
-`
-:
-""
+</button>`
+:""
 }
 
 </div>
@@ -1968,31 +2539,40 @@ Open DPP
 }
 
 
-/* ==========================
-   RENDER WEEKLY TEST
-========================== */
+/* =========================
+   RENDER WEEKLY
+========================= */
 
 function renderWeekly(){
 
-let container =
+const container=
 document.getElementById("weeklyContainer");
 
-container.innerHTML = "";
 
-if(weekly.length === 0){
+if(!container)return;
 
-container.innerHTML = `
+
+container.innerHTML="";
+
+
+if(weekly.length===0){
+
+container.innerHTML=`
+
 <div class="card empty">
 📝 No weekly test uploaded yet.
 </div>
+
 `;
 
 return;
+
 }
+
 
 weekly.forEach(function(item){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card">
 
@@ -2009,27 +2589,21 @@ ${safe(item.date)}
 ${
 item.text
 ?
-`
-<p style="margin-top:10px">
+`<p style="margin-top:10px">
 ${safe(item.text)}
-</p>
-`
-:
-""
+</p>`
+:""
 }
 
 ${
 item.url
 ?
-`
-<button
+`<button
 class="btn"
-onclick="openLink('${safeURL(item.url)}')">
+onclick="openLink('${safe(item.url)}')">
 Open Weekly Test
-</button>
-`
-:
-""
+</button>`
+:""
 }
 
 </div>
@@ -2041,42 +2615,48 @@ Open Weekly Test
 }
 
 
-/* ==========================
+/* =========================
    RENDER NOTIFICATIONS
-========================== */
+========================= */
 
 function renderNotifications(){
 
-let container =
+const container=
 document.getElementById("notificationContainer");
 
-container.innerHTML = "";
 
-if(notifications.length === 0){
+if(!container)return;
 
-container.innerHTML = `
+
+container.innerHTML="";
+
+
+if(notifications.length===0){
+
+container.innerHTML=`
+
 <div class="card empty">
 🔔 No notifications yet.
 </div>
+
 `;
 
 return;
+
 }
+
 
 notifications.forEach(function(item){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card notification">
 
 ${
 item.imageUrl
 ?
-`
-<img src="${safe(item.imageUrl)}">
-`
-:
-""
+`<img src="${safe(item.imageUrl)}">`
+:""
 }
 
 <h3>
@@ -2100,20 +2680,25 @@ From MathNova with Karan
 }
 
 
-/* ==========================
+/* =========================
    RENDER QUESTIONS
-========================== */
+========================= */
 
 function renderQuestions(){
 
-let container =
+const container=
 document.getElementById("teacherQuestions");
 
-container.innerHTML = "";
+
+if(!container)return;
+
+
+container.innerHTML="";
+
 
 questions.forEach(function(item,index){
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="card question">
 
@@ -2132,7 +2717,9 @@ Show Answer
 <div
 id="teacherAnswer${index}"
 class="answer">
+
 ${safe(item.answer)}
+
 </div>
 
 </div>
@@ -2144,37 +2731,36 @@ ${safe(item.answer)}
 }
 
 
-/* ==========================
+/* =========================
    HOME
-========================== */
+========================= */
 
 function renderHome(){
 
-let liveBox =
+const liveBox=
 document.getElementById("homeLive");
 
-let recordedBox =
+const recordedBox=
 document.getElementById("homeRecorded");
 
-let dppBox =
+const dppBox=
 document.getElementById("homeDpp");
 
-let testBox =
+const testBox=
 document.getElementById("homeTests");
 
-let notesBox =
+const notesBox=
 document.getElementById("homeNotes");
 
-let notificationBox =
+const notificationBox=
 document.getElementById("homeNotifications");
 
 
 if(liveClasses.length){
 
-let item =
-liveClasses[0];
+const item=liveClasses[0];
 
-liveBox.innerHTML = `
+liveBox.innerHTML=`
 
 <div class="card live">
 
@@ -2198,7 +2784,7 @@ ${safe(item.chapter)}
 
 }else{
 
-liveBox.innerHTML =
+liveBox.innerHTML=
 '<div class="card empty">No live class scheduled.</div>';
 
 }
@@ -2206,10 +2792,9 @@ liveBox.innerHTML =
 
 if(recorded.length){
 
-let item =
-recorded[0];
+const item=recorded[0];
 
-recordedBox.innerHTML = `
+recordedBox.innerHTML=`
 
 <div class="card">
 
@@ -2226,15 +2811,12 @@ ${safe(item.chapter)}
 ${
 item.link
 ?
-`
-<button
+`<button
 class="btn"
-onclick="openLink('${safeURL(item.link)}')">
+onclick="openLink('${safe(item.link)}')">
 Watch
-</button>
-`
-:
-""
+</button>`
+:""
 }
 
 </div>
@@ -2243,7 +2825,7 @@ Watch
 
 }else{
 
-recordedBox.innerHTML =
+recordedBox.innerHTML=
 '<div class="card empty">No recorded classes yet.</div>';
 
 }
@@ -2251,10 +2833,9 @@ recordedBox.innerHTML =
 
 if(dpp.length){
 
-let item =
-dpp[0];
+const item=dpp[0];
 
-dppBox.innerHTML = `
+dppBox.innerHTML=`
 
 <div class="card">
 
@@ -2274,7 +2855,7 @@ ${safe(item.chapter)}
 
 }else{
 
-dppBox.innerHTML =
+dppBox.innerHTML=
 '<div class="card empty">No DPP yet.</div>';
 
 }
@@ -2282,10 +2863,9 @@ dppBox.innerHTML =
 
 if(weekly.length){
 
-let item =
-weekly[0];
+const item=weekly[0];
 
-testBox.innerHTML = `
+testBox.innerHTML=`
 
 <div class="card">
 
@@ -2296,7 +2876,7 @@ testBox.innerHTML = `
 <p class="muted">
 Class ${safe(item.classNumber)}
 •
-${safe(item.date || "")}
+${safe(item.date||"")}
 </p>
 
 </div>
@@ -2305,7 +2885,7 @@ ${safe(item.date || "")}
 
 }else{
 
-testBox.innerHTML =
+testBox.innerHTML=
 '<div class="card empty">No weekly test yet.</div>';
 
 }
@@ -2313,10 +2893,9 @@ testBox.innerHTML =
 
 if(notes.length){
 
-let item =
-notes[0];
+const item=notes[0];
 
-notesBox.innerHTML = `
+notesBox.innerHTML=`
 
 <div class="card note">
 
@@ -2336,7 +2915,7 @@ ${safe(item.chapter)}
 
 }else{
 
-notesBox.innerHTML =
+notesBox.innerHTML=
 '<div class="card empty">No new notes.</div>';
 
 }
@@ -2344,10 +2923,9 @@ notesBox.innerHTML =
 
 if(notifications.length){
 
-let item =
-notifications[0];
+const item=notifications[0];
 
-notificationBox.innerHTML = `
+notificationBox.innerHTML=`
 
 <div class="card notification">
 
@@ -2355,8 +2933,7 @@ ${
 item.imageUrl
 ?
 `<img src="${safe(item.imageUrl)}">`
-:
-""
+:""
 }
 
 <h3>
@@ -2373,954 +2950,134 @@ ${safe(item.text)}
 
 }else{
 
-notificationBox.innerHTML =
+notificationBox.innerHTML=
 '<div class="card empty">No new notifications.</div>';
 
 }
 
 }
-  <script>
 
-/* =========================
-   FIREBASE START
-========================= */
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB7wh8waM4mD_nXz_wNmT2jKEE-ob02oRU",
-  authDomain: "mathnova-80ebb.firebaseapp.com",
-  projectId: "mathnova-80ebb",
-  storageBucket: "mathnova-80ebb.firebasestorage.app",
-  messagingSenderId: "334372490207",
-  appId: "1:334372490207:web:4008da2a60e80fc46ad26a",
-  measurementId: "G-B333D589NL"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const database = firebase.database();
-const storage = firebase.storage();
-
-const refs = {
-  notes: database.ref("notes"),
-  dpp: database.ref("dpp"),
-  weekly: database.ref("weeklyTests"),
-  lectures: database.ref("lectures"),
-  live: database.ref("liveClasses"),
-  recorded: database.ref("recordedClasses"),
-  notifications: database.ref("notifications"),
-  questions: database.ref("questions")
-};
-
-/* =========================
-   DATA
-========================= */
-
-let notes = [];
-let dpp = [];
-let weekly = [];
-let lectures = [];
-let liveClasses = [];
-let recorded = [];
-let notifications = [];
-let questions = [];
-
-let selectedClass = 11;
-
-let chapters11 = [
-  "Sets",
-  "Relations and Functions",
-  "Trigonometric Functions",
-  "Complex Numbers and Quadratic Equations",
-  "Linear Inequalities",
-  "Permutations and Combinations",
-  "Binomial Theorem",
-  "Sequences and Series",
-  "Straight Lines",
-  "Conic Sections",
-  "Introduction to Three Dimensional Geometry",
-  "Limits and Derivatives",
-  "Statistics",
-  "Probability"
-];
-
-let chapters12 = [
-  "Relations and Functions",
-  "Inverse Trigonometric Functions",
-  "Matrices",
-  "Determinants",
-  "Continuity and Differentiability",
-  "Applications of Derivatives",
-  "Integrals",
-  "Application of Integrals",
-  "Differential Equations",
-  "Vector Algebra",
-  "Three Dimensional Geometry",
-  "Linear Programming",
-  "Probability"
-];
-
-/* =========================
-   SAFE FUNCTIONS
-========================= */
-
-function safe(text) {
-  return String(text || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-}
-
-function value(id) {
-  const el = document.getElementById(id);
-  return el ? el.value.trim() : "";
-}
-
-function openLink(url) {
-  if (!url) {
-    alert("No link available.");
-    return;
-  }
-  window.open(url, "_blank");
-}
-
-/* =========================
-   PAGE NAVIGATION
-========================= */
-
-function showPage(id) {
-
-  document.querySelectorAll(".page").forEach(function(page) {
-    page.classList.remove("active");
-  });
-
-  const page = document.getElementById(id);
-
-  if (page) {
-    page.classList.add("active");
-  }
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-function navigate(button, id) {
-
-  document.querySelectorAll(".nav-item").forEach(function(btn) {
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
-
-  showPage(id);
-
-  if (id === "courses") {
-    loadCourses(selectedClass);
-  }
-
-  if (id === "notes") {
-    renderNotes();
-  }
-}
-
-function setActiveNav(index) {
-
-  const buttons = document.querySelectorAll(".nav-item");
-
-  buttons.forEach(function(btn) {
-    btn.classList.remove("active");
-  });
-
-  if (buttons[index]) {
-    buttons[index].classList.add("active");
-  }
-}
-
-/* =========================
-   CLASS
-========================= */
-
-function selectClass(classNumber) {
-
-  selectedClass = classNumber;
-
-  loadCourses(classNumber);
-
-  showPage("courses");
-
-  setActiveNav(1);
-}
-
-/* =========================
-   COURSES
-========================= */
-
-function loadCourses(classNumber) {
-
-  const chapters =
-    classNumber === 11 ? chapters11 : chapters12;
-
-  const title =
-    document.getElementById("courseTitle");
-
-  const container =
-    document.getElementById("chapterList");
-
-  if (!title || !container) return;
-
-  title.textContent =
-    "Class " + classNumber + " Mathematics";
-
-  container.innerHTML = "";
-
-  chapters.forEach(function(chapter, index) {
-
-    container.innerHTML += `
-      <div class="card">
-        <div class="chapter-row">
-
-          <div class="chapter-number">
-            ${index + 1}
-          </div>
-
-          <div class="chapter-info">
-            <h3>${safe(chapter)}</h3>
-
-            <p class="muted">
-              Class ${classNumber}
-            </p>
-          </div>
-
-          <button
-            class="btn-light"
-            onclick="openChapter(${index})">
-            Open
-          </button>
-
-        </div>
-      </div>
-    `;
-  });
-}
-
-/* =========================
-   CHAPTER
-========================= */
-
-function openChapter(index) {
-
-  const chapters =
-    selectedClass === 11 ? chapters11 : chapters12;
-
-  const name = chapters[index];
-
-  document.getElementById("chapterTitle").textContent =
-    "📖 " + name;
-
-  document.getElementById("chapterClass").textContent =
-    "Class " + selectedClass +
-    " • Mathematics • MathNova with Karan";
-
-  const box =
-    document.getElementById("chapterLectures");
-
-  const chapterLectures =
-    lectures.filter(function(item) {
-
-      return String(item.classNumber) ===
-        String(selectedClass) &&
-        item.chapter === name;
-
-    });
-
-  box.innerHTML = "";
-
-  if (chapterLectures.length === 0) {
-
-    box.innerHTML =
-      `<p class="muted">
-        No lecture uploaded for this chapter yet.
-      </p>`;
-
-  } else {
-
-    chapterLectures.forEach(function(item) {
-
-      box.innerHTML += `
-        <div class="card">
-
-          <h3>
-            ${safe(item.title)}
-          </h3>
-
-          <p class="muted">
-            ${safe(item.chapter)}
-          </p>
-
-          ${
-            item.link
-            ? `
-              <button
-                class="btn"
-                onclick="openLink('${safe(item.link)}')">
-                ▶ Watch Lecture
-              </button>
-            `
-            : ""
-          }
-
-        </div>
-      `;
-
-    });
-  }
-
-  showPage("chapter");
-}
-
-function backToCourses() {
-
-  loadCourses(selectedClass);
-
-  showPage("courses");
-}
-
-/* =========================
-   ANSWER
-========================= */
-
-function toggleAnswer(id) {
-
-  const answer =
-    document.getElementById(id);
-
-  if (!answer) return;
-
-  answer.style.display =
-    answer.style.display === "block"
-      ? "none"
-      : "block";
-}
-
-/* =========================
-   TEACHER LOGIN
-========================= */
-
-function teacherLogin() {
-
-  const password =
-    document.getElementById("teacherPassword").value;
-
-  const message =
-    document.getElementById("loginMessage");
-
-  if (password === "Coco123") {
-
-    document.getElementById(
-      "teacherDashboard"
-    ).style.display = "block";
-
-    message.textContent =
-      "✅ Teacher login successful.";
-
-    message.style.color = "green";
-
-  } else {
-
-    message.textContent =
-      "❌ Incorrect password.";
-
-    message.style.color = "red";
-  }
-}
-
-/* =========================
-   TEACHER FORMS
-========================= */
-
-function openTeacherForm(type) {
-
-  document
-    .querySelectorAll(".teacher-form")
-    .forEach(function(form) {
-      form.style.display = "none";
-    });
-
-  const form =
-    document.getElementById(type + "Form");
-
-  if (form) {
-
-    form.style.display = "block";
-
-    form.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
-}
-
-/* =========================
-   FILE UPLOAD
-========================= */
-
-async function uploadFile(file, folder, statusId) {
-
-  if (!file) return null;
-
-  const status =
-    document.getElementById(statusId);
-
-  if (status) {
-    status.textContent = "Uploading...";
-  }
-
-  const fileName =
-    Date.now() + "_" + file.name;
-
-  const storageRef =
-    storage.ref(folder + "/" + fileName);
-
-  const snapshot =
-    await storageRef.put(file);
-
-  const url =
-    await snapshot.ref.getDownloadURL();
-
-  if (status) {
-    status.textContent = "Upload complete.";
-  }
-
-  return url;
-}
-
-/* =========================
-   ADD NOTE
-========================= */
-
-async function addNote() {
-
-  try {
-
-    const file =
-      document.getElementById("noteFile").files[0];
-
-    const data = {
-
-      title: value("noteTitle"),
-
-      classNumber: value("noteClass"),
-
-      chapter: value("noteChapter"),
-
-      text: value("noteText"),
-
-      createdAt: Date.now()
-
-    };
-
-    if (!data.title || !data.chapter || !file) {
-
-      alert(
-        "Please enter title, chapter and select a PDF."
-      );
-
-      return;
-    }
-
-    if (file.type !== "application/pdf") {
-
-      alert("Please select a PDF file.");
-
-      return;
-    }
-
-    data.url =
-      await uploadFile(
-        file,
-        "notes",
-        "noteStatus"
-      );
-
-    await refs.notes.push(data);
-
-    alert(
-      "✅ PDF Notes published successfully!"
-    );
-
-    document.getElementById("noteTitle").value = "";
-    document.getElementById("noteChapter").value = "";
-    document.getElementById("noteText").value = "";
-    document.getElementById("noteFile").value = "";
-
-  }
-
-  catch(error) {
-
-    console.error(error);
-
-    alert(
-      "❌ Upload failed: " +
-      error.message
-    );
-  }
-}
-
-/* =========================
-   ADD LECTURE
-========================= */
-
-function addLecture() {
-
-  const data = {
-
-    title: value("lectureTitle"),
-
-    classNumber: value("lectureClass"),
-
-    chapter: value("lectureChapter"),
-
-    link: value("lectureLink"),
-
-    createdAt: Date.now()
-
-  };
-
-  if (!data.title || !data.chapter) {
-
-    alert(
-      "Please enter lecture title and chapter."
-    );
-
-    return;
-  }
-
-  refs.lectures.push(data);
-
-  alert("✅ Lecture published!");
-
-}
-
-/* =========================
-   ADD LIVE
-========================= */
-
-function addLiveClass() {
-
-  const data = {
-
-    title: value("liveTitle"),
-
-    classNumber: value("liveClass"),
-
-    chapter: value("liveChapter"),
-
-    date: value("liveDate"),
-
-    time: value("liveTime"),
-
-    link: value("liveLink"),
-
-    createdAt: Date.now()
-
-  };
-
-  if (
-    !data.title ||
-    !data.chapter ||
-    !data.date ||
-    !data.time
-  ) {
-
-    alert("Please complete live class details.");
-
-    return;
-  }
-
-  refs.live.push(data);
-
-  alert("🔴 Live class published!");
-
-}
-
-/* =========================
-   ADD RECORDED
-========================= */
-
-function addRecorded() {
-
-  const data = {
-
-    title: value("recordedTitle"),
-
-    classNumber: value("recordedClass"),
-
-    chapter: value("recordedChapter"),
-
-    date: value("recordedDate"),
-
-    link: value("recordedLink"),
-
-    createdAt: Date.now()
-
-  };
-
-  if (
-    !data.title ||
-    !data.chapter ||
-    !data.link
-  ) {
-
-    alert(
-      "Enter title, chapter and recording link."
-    );
-
-    return;
-  }
-
-  refs.recorded.push(data);
-
-  alert("🎥 Recording published!");
-
-}
-
-/* =========================
-   ADD DPP
-========================= */
-
-async function addDpp() {
-
-  try {
-
-    const file =
-      document.getElementById("dppFile").files[0];
-
-    const data = {
-
-      title: value("dppTitle"),
-
-      classNumber: value("dppClass"),
-
-      chapter: value("dppChapter"),
-
-      text: value("dppText"),
-
-      createdAt: Date.now()
-
-    };
-
-    if (!data.title || !data.chapter || !file) {
-
-      alert(
-        "Complete DPP details and select a file."
-      );
-
-      return;
-    }
-
-    data.url =
-      await uploadFile(
-        file,
-        "dpp",
-        "dppStatus"
-      );
-
-    await refs.dpp.push(data);
-
-    alert("✅ DPP published!");
-
-  }
-
-  catch(error) {
-
-    alert(
-      "❌ DPP upload failed: " +
-      error.message
-    );
-  }
-}
-
-/* =========================
-   ADD WEEKLY
-========================= */
-
-async function addWeekly() {
-
-  try {
-
-    const file =
-      document.getElementById("weeklyFile").files[0];
-
-    const data = {
-
-      title: value("weeklyTitle"),
-
-      classNumber: value("weeklyClass"),
-
-      date: value("weeklyDate"),
-
-      text: value("weeklyText"),
-
-      createdAt: Date.now()
-
-    };
-
-    if (!data.title || !file) {
-
-      alert(
-        "Enter title and select the test file."
-      );
-
-      return;
-    }
-
-    data.url =
-      await uploadFile(
-        file,
-        "weeklyTests",
-        "weeklyStatus"
-      );
-
-    await refs.weekly.push(data);
-
-    alert("✅ Weekly test published!");
-
-  }
-
-  catch(error) {
-
-    alert(
-      "❌ Weekly test upload failed: " +
-      error.message
-    );
-  }
-}
-
-/* =========================
-   ADD QUESTION
-========================= */
-
-function addQuestion() {
-
-  const data = {
-
-    question: value("questionText"),
-
-    answer: value("questionAnswer"),
-
-    classNumber: value("questionClass"),
-
-    createdAt: Date.now()
-
-  };
-
-  if (!data.question || !data.answer) {
-
-    alert(
-      "Please enter question and answer."
-    );
-
-    return;
-  }
-
-  refs.questions.push(data);
-
-  alert("✅ Question published!");
-
-}
-
-/* =========================
-   ADD NOTIFICATION
-========================= */
-
-async function addNotification() {
-
-  try {
-
-    const file =
-      document
-        .getElementById("notificationFile")
-        .files[0];
-
-    const data = {
-
-      title: value("notificationTitle"),
-
-      text: value("notificationText"),
-
-      createdAt: Date.now()
-
-    };
-
-    if (!data.title || !data.text) {
-
-      alert(
-        "Enter notification title and message."
-      );
-
-      return;
-    }
-
-    if (file) {
-
-      if (!file.type.startsWith("image/")) {
-
-        alert("Please select an image.");
-
-        return;
-      }
-
-      data.imageUrl =
-        await uploadFile(
-          file,
-          "notifications",
-          "notificationStatus"
-        );
-    }
-
-    await refs.notifications.push(data);
-
-    alert("🔔 Notification sent!");
-
-  }
-
-  catch(error) {
-
-    alert(
-      "❌ Notification failed: " +
-      error.message
-    );
-  }
-}
-
-/* =========================
-   ADD CHAPTER
-========================= */
-
-function addChapter() {
-
-  const classNumber =
-    value("manageClass");
-
-  const chapter =
-    value("newChapter");
-
-  if (!chapter) {
-
-    alert("Enter a chapter name.");
-
-    return;
-  }
-
-  if (classNumber === "11") {
-
-    chapters11.push(chapter);
-
-  } else {
-
-    chapters12.push(chapter);
-
-  }
-
-  document.getElementById(
-    "newChapter"
-  ).value = "";
-
-  if (
-    selectedClass ===
-    Number(classNumber)
-  ) {
-
-    loadCourses(selectedClass);
-  }
-
-  alert(
-    "✅ Chapter added to Class " +
-    classNumber
-  );
-}
-
-/* =========================
-   START
-========================= */
-
-loadCourses(11);
-
-renderNotes();
-renderLive();
-renderRecorded();
-renderDpp();
-renderWeekly();
-renderNotifications();
-renderQuestions();
-renderHome();
 
 /* =========================
    FIREBASE LISTENERS
 ========================= */
 
-function listen(ref, variable, renderFunction) {
+function listen(ref,setter,renderFunction){
 
-  ref.on("value", function(snapshot) {
+ref.on("value",function(snapshot){
 
-    window[variable] = [];
+const arr=[];
 
-    snapshot.forEach(function(child) {
 
-      const item = child.val();
+snapshot.forEach(function(child){
 
-      item.id = child.key;
+const item=child.val();
 
-      window[variable].unshift(item);
+item.id=child.key;
 
-    });
+arr.unshift(item);
 
-    renderFunction();
+});
 
-    renderHome();
 
-  });
+setter(arr);
+
+renderFunction();
+
+renderHome();
+
+});
+
 }
 
-listen(refs.notes, "notes", renderNotes);
 
-listen(refs.dpp, "dpp", renderDpp);
+/* =========================
+   START APP
+========================= */
 
-listen(refs.weekly, "weekly", renderWeekly);
+loadCourses(11);
+
+renderNotes();
+
+renderLive();
+
+renderRecorded();
+
+renderDpp();
+
+renderWeekly();
+
+renderNotifications();
+
+renderQuestions();
+
+renderHome();
+
+
+/* =========================
+   DATABASE LISTENERS
+========================= */
 
 listen(
-  refs.lectures,
-  "lectures",
-  function() {
-    loadCourses(selectedClass);
-  }
+refs.notes,
+function(data){notes=data;},
+renderNotes
 );
 
-listen(
-  refs.live,
-  "liveClasses",
-  renderLive
-);
 
 listen(
-  refs.recorded,
-  "recorded",
-  renderRecorded
+refs.dpp,
+function(data){dpp=data;},
+renderDpp
 );
 
-listen(
-  refs.notifications,
-  "notifications",
-  renderNotifications
-);
 
 listen(
-  refs.questions,
-  "questions",
-  renderQuestions
+refs.weekly,
+function(data){weekly=data;},
+renderWeekly
+);
+
+
+listen(
+refs.lectures,
+function(data){
+
+lectures=data;
+
+loadCourses(selectedClass);
+
+},
+function(){}
+
+);
+
+
+listen(
+refs.live,
+function(data){liveClasses=data;},
+renderLive
+);
+
+
+listen(
+refs.recorded,
+function(data){recorded=data;},
+renderRecorded
+);
+
+
+listen(
+refs.notifications,
+function(data){notifications=data;},
+renderNotifications
+);
+
+
+listen(
+refs.questions,
+function(data){questions=data;},
+renderQuestions
 );
 
 </script>
