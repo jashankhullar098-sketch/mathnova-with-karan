@@ -139,15 +139,6 @@ main{
   margin-top:10px;
 }
 
-.btn-danger{
-  background:#e5484d;
-  color:white;
-  padding:10px 14px;
-  border-radius:10px;
-  font-weight:bold;
-  margin-top:10px;
-}
-
 .chapter-row{
   display:flex;
   align-items:center;
@@ -331,9 +322,7 @@ textarea{
 <div class="topbar">
 <div class="logo">📐 MathNova</div>
 
-<button class="bell" onclick="showNotifications()">
-🔔
-</button>
+<button class="bell" onclick="showNotifications()">🔔</button>
 </div>
 
 <div class="greeting">
@@ -343,10 +332,8 @@ textarea{
 
 </header>
 
-
 <main>
 
-<!-- HOME -->
 <section id="home" class="page active">
 
 <h2 class="section-title">Choose your class</h2>
@@ -367,30 +354,20 @@ textarea{
 
 </div>
 
-
 <h2 class="section-title">🔴 Live Classes</h2>
-
 <div id="homeLive"></div>
 
-
 <h2 class="section-title">📝 Latest Notes</h2>
-
 <div id="homeNotes"></div>
 
-
 <h2 class="section-title">🔔 Notifications</h2>
-
 <div id="homeNotifications"></div>
-
 
 <h2 class="section-title">⭐ Practice</h2>
 
 <div class="card">
 <h3>Important Questions</h3>
-<p class="muted">
-Practice important Mathematics questions.
-</p>
-
+<p class="muted">Practice important Mathematics questions.</p>
 <button class="btn" onclick="showPage('practice')">
 Practice Now
 </button>
@@ -398,29 +375,19 @@ Practice Now
 
 </section>
 
-
-<!-- COURSES -->
 <section id="courses" class="page">
 
-<button class="btn" onclick="showPage('home')">
-← Back
-</button>
+<button class="btn" onclick="showPage('home')">← Back</button>
 
-<h2 id="courseTitle" class="section-title">
-Mathematics
-</h2>
+<h2 id="courseTitle" class="section-title">Mathematics</h2>
 
 <div id="chapterList"></div>
 
 </section>
 
-
-<!-- CHAPTER -->
 <section id="chapter" class="page">
 
-<button class="btn" onclick="backToCourses()">
-← Back to Chapters
-</button>
+<button class="btn" onclick="backToCourses()">← Back to Chapters</button>
 
 <div class="card">
 <h2 id="chapterTitle"></h2>
@@ -429,16 +396,12 @@ Mathematics
 
 <div class="card">
 <h3>📺 Lectures</h3>
-<p class="muted">
-Chapter lectures will appear here.
-</p>
+<p class="muted">Chapter lectures will appear here.</p>
 </div>
 
 <div class="card">
 <h3>📝 Notes</h3>
-<p class="muted">
-Chapter notes uploaded by Karan.
-</p>
+<p class="muted">Chapter notes uploaded by Karan.</p>
 
 <button class="btn-light" onclick="showPage('notes')">
 Open Notes
@@ -447,9 +410,7 @@ Open Notes
 
 <div class="card">
 <h3>❓ Practice</h3>
-<p class="muted">
-Important questions for practice.
-</p>
+<p class="muted">Important questions for practice.</p>
 
 <button class="btn-light" onclick="showPage('practice')">
 Practice
@@ -458,8 +419,6 @@ Practice
 
 </section>
 
-
-<!-- NOTES -->
 <section id="notes" class="page">
 
 <h2 class="section-title">📝 Notes</h2>
@@ -468,8 +427,6 @@ Practice
 
 </section>
 
-
-<!-- LIVE CLASSES -->
 <section id="live" class="page">
 
 <h2 class="section-title">🔴 Live Classes</h2>
@@ -478,8 +435,6 @@ Practice
 
 </section>
 
-
-<!-- NOTIFICATIONS -->
 <section id="notifications" class="page">
 
 <h2 class="section-title">🔔 Notifications</h2>
@@ -488,13 +443,9 @@ Practice
 
 </section>
 
-
-<!-- PRACTICE -->
 <section id="practice" class="page">
 
-<h2 class="section-title">
-❓ Important Questions
-</h2>
+<h2 class="section-title">❓ Important Questions</h2>
 
 <div class="card question">
 
@@ -514,7 +465,6 @@ A ∩ B = {3}
 </div>
 
 </div>
-
 
 <div class="card question">
 
@@ -537,7 +487,6 @@ D = 25 − 24<br>
 
 </div>
 
-
 <div class="card question">
 
 <b>
@@ -556,10 +505,10 @@ Show Answer
 
 </div>
 
+<div id="teacherQuestions"></div>
+
 </section>
 
-
-<!-- PROFILE / TEACHER -->
 <section id="profile" class="page">
 
 <div class="card profile">
@@ -569,12 +518,12 @@ Show Answer
 <br>
 
 <h2>Student Profile</h2>
+
 <p class="muted">
 MathNova Learner
 </p>
 
 </div>
-
 
 <div class="card">
 
@@ -596,12 +545,9 @@ Login
 
 <p id="loginMessage" class="message"></p>
 
-
 <div id="teacherDashboard" style="display:none;">
 
-<h3 style="margin-top:20px;">
-Teacher Dashboard
-</h3>
+<h3 style="margin-top:20px;">Teacher Dashboard</h3>
 
 <div class="teacher-menu">
 
@@ -649,25 +595,20 @@ onclick="openTeacherForm('chapter')">
 
 </div>
 
-
-<!-- LECTURE FORM -->
 <div id="lectureForm" class="teacher-form">
 
 <h3>📺 Add Lecture</h3>
 
-<input id="lectureTitle"
-placeholder="Lecture title">
+<input id="lectureTitle" placeholder="Lecture title">
 
 <select id="lectureClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input id="lectureChapter"
-placeholder="Chapter name">
+<input id="lectureChapter" placeholder="Chapter name">
 
-<input id="lectureLink"
-placeholder="Video / lecture link">
+<input id="lectureLink" placeholder="Video / lecture link">
 
 <button class="btn" onclick="addLecture()">
 Publish Lecture
@@ -675,31 +616,24 @@ Publish Lecture
 
 </div>
 
-
-<!-- LIVE FORM -->
 <div id="liveForm" class="teacher-form">
 
 <h3>🔴 Create Live Class</h3>
 
-<input id="liveTitle"
-placeholder="Live class title">
+<input id="liveTitle" placeholder="Live class title">
 
 <select id="liveClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input id="liveChapter"
-placeholder="Chapter">
+<input id="liveChapter" placeholder="Chapter">
 
-<input id="liveDate"
-type="date">
+<input id="liveDate" type="date">
 
-<input id="liveTime"
-type="time">
+<input id="liveTime" type="time">
 
-<input id="liveLink"
-placeholder="Live class link">
+<input id="liveLink" placeholder="Live class link">
 
 <button class="btn" onclick="addLiveClass()">
 Publish Live Class
@@ -707,22 +641,18 @@ Publish Live Class
 
 </div>
 
-
-<!-- NOTE FORM -->
 <div id="noteForm" class="teacher-form">
 
 <h3>📝 Upload Notes</h3>
 
-<input id="noteTitle"
-placeholder="Note title">
+<input id="noteTitle" placeholder="Note title">
 
 <select id="noteClass">
 <option value="11">Class 11</option>
 <option value="12">Class 12</option>
 </select>
 
-<input id="noteChapter"
-placeholder="Chapter">
+<input id="noteChapter" placeholder="Chapter">
 
 <textarea id="noteText"
 placeholder="Write your notes here..."></textarea>
@@ -733,17 +663,13 @@ Publish Notes
 
 </div>
 
-
-<!-- QUESTION FORM -->
 <div id="questionForm" class="teacher-form">
 
 <h3>❓ Add Important Question</h3>
 
-<input id="questionText"
-placeholder="Question">
+<input id="questionText" placeholder="Question">
 
-<input id="questionAnswer"
-placeholder="Answer">
+<input id="questionAnswer" placeholder="Answer">
 
 <select id="questionClass">
 <option value="11">Class 11</option>
@@ -756,8 +682,6 @@ Publish Question
 
 </div>
 
-
-<!-- NOTIFICATION FORM -->
 <div id="notificationForm" class="teacher-form">
 
 <h3>🔔 Send Notification</h3>
@@ -774,8 +698,6 @@ Send Notification
 
 </div>
 
-
-<!-- CHAPTER FORM -->
 <div id="chapterForm" class="teacher-form">
 
 <h3>📚 Manage Chapters</h3>
@@ -795,15 +717,11 @@ Add Chapter
 </div>
 
 </div>
-
 </div>
 
 </section>
 
 </main>
-
-
-<!-- BOTTOM NAVIGATION -->
 
 <nav class="bottom-nav">
 
@@ -839,8 +757,32 @@ Profile
 
 </nav>
 
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-database-compat.js"></script>
 
 <script>
+
+/* ==========================
+   FIREBASE
+========================== */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB7wh8waM4mD_nXz_wNmT2jKEE-ob02oRU",
+  authDomain: "mathnova-80ebb.firebaseapp.com",
+  projectId: "mathnova-80ebb",
+  storageBucket: "mathnova-80ebb.firebasestorage.app",
+  messagingSenderId: "334372490207",
+  appId: "1:334372490207:web:4008da2a60e80fc46ad26a",
+  measurementId: "G-B333D589NL"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+
+const notesRef = database.ref("notes");
+
 
 /* ==========================
    DATA
@@ -881,17 +823,10 @@ let chapters12=[
 
 let selectedClass=11;
 
-
-/* Teacher-created content */
-
 let notes=[];
-
 let lectures=[];
-
 let liveClasses=[];
-
 let notifications=[];
-
 let questions=[];
 
 
@@ -903,9 +838,7 @@ function showPage(id){
 
 document.querySelectorAll(".page")
 .forEach(function(page){
-
 page.classList.remove("active");
-
 });
 
 let page=document.getElementById(id);
@@ -930,9 +863,7 @@ function navigate(button,id){
 
 document.querySelectorAll(".nav-item")
 .forEach(function(btn){
-
 btn.classList.remove("active");
-
 });
 
 button.classList.add("active");
@@ -1076,14 +1007,40 @@ let buttons=
 document.querySelectorAll(".nav-item");
 
 buttons.forEach(function(btn){
-
 btn.classList.remove("active");
-
 });
 
 if(buttons[index]){
 buttons[index].classList.add("active");
 }
+
+}
+
+
+/* ==========================
+   NOTES FROM FIREBASE
+========================== */
+
+function loadNotesFromFirebase(){
+
+notesRef.on("value",function(snapshot){
+
+notes=[];
+
+snapshot.forEach(function(child){
+
+let note=child.val();
+
+note.id=child.key;
+
+notes.unshift(note);
+
+});
+
+renderNotes();
+renderHome();
+
+});
 
 }
 
@@ -1098,7 +1055,6 @@ let container=
 document.getElementById("notesContainer");
 
 container.innerHTML="";
-
 
 if(notes.length===0){
 
@@ -1121,7 +1077,6 @@ return;
 
 }
 
-
 notes.forEach(function(note){
 
 let card=document.createElement("div");
@@ -1133,7 +1088,7 @@ card.innerHTML=`
 <h3>${safe(note.title)}</h3>
 
 <p class="muted">
-Class ${note.classNumber}
+Class ${safe(note.classNumber)}
 • ${safe(note.chapter)}
 • Uploaded by Karan
 </p>
@@ -1173,7 +1128,6 @@ let text=
 document.getElementById("noteText")
 .value.trim();
 
-
 if(!title || !chapter || !text){
 
 alert("Please complete all note fields.");
@@ -1182,27 +1136,36 @@ return;
 
 }
 
-
-notes.unshift({
+let noteData={
 
 title:title,
-
 classNumber:classNumber,
-
 chapter:chapter,
+text:text,
+createdAt:Date.now()
 
-text:text
+};
 
-});
-
+notesRef.push(noteData)
+.then(function(){
 
 document.getElementById("noteTitle").value="";
 document.getElementById("noteChapter").value="";
 document.getElementById("noteText").value="";
 
-renderNotes();
+alert("✅ Notes published successfully!");
 
-alert("✅ Notes published by Karan.");
+})
+.catch(function(error){
+
+console.error(error);
+
+alert(
+"❌ Note could not be saved.\n\n"+
+error.message
+);
+
+});
 
 }
 
@@ -1229,7 +1192,6 @@ let link=
 document.getElementById("lectureLink")
 .value.trim();
 
-
 if(!title || !chapter){
 
 alert("Please enter lecture title and chapter.");
@@ -1238,19 +1200,12 @@ return;
 
 }
 
-
 lectures.unshift({
-
 title:title,
-
 classNumber:classNumber,
-
 chapter:chapter,
-
 link:link
-
 });
-
 
 document.getElementById("lectureTitle").value="";
 document.getElementById("lectureChapter").value="";
@@ -1287,7 +1242,6 @@ document.getElementById("liveTime").value;
 let link=
 document.getElementById("liveLink").value.trim();
 
-
 if(!title || !chapter || !date || !time){
 
 alert("Please complete the live class details.");
@@ -1296,23 +1250,14 @@ return;
 
 }
 
-
 liveClasses.unshift({
-
 title:title,
-
 classNumber:classNumber,
-
 chapter:chapter,
-
 date:date,
-
 time:time,
-
 link:link
-
 });
-
 
 document.getElementById("liveTitle").value="";
 document.getElementById("liveChapter").value="";
@@ -1320,9 +1265,7 @@ document.getElementById("liveDate").value="";
 document.getElementById("liveTime").value="";
 document.getElementById("liveLink").value="";
 
-
 renderLive();
-
 renderHome();
 
 alert("🔴 Live class published.");
@@ -1344,7 +1287,6 @@ let text=
 document.getElementById("notificationText")
 .value.trim();
 
-
 if(!title || !text){
 
 alert("Please enter notification title and message.");
@@ -1353,21 +1295,15 @@ return;
 
 }
 
-
 notifications.unshift({
-
 title:title,
-
 text:text
-
 });
-
 
 document.getElementById("notificationTitle").value="";
 document.getElementById("notificationText").value="";
 
 renderNotifications();
-
 renderHome();
 
 alert("🔔 Notification sent.");
@@ -1393,7 +1329,6 @@ let classNumber=
 document.getElementById("questionClass")
 .value;
 
-
 if(!question || !answer){
 
 alert("Please enter question and answer.");
@@ -1402,21 +1337,14 @@ return;
 
 }
 
-
 questions.unshift({
-
 question:question,
-
 answer:answer,
-
 classNumber:classNumber
-
 });
-
 
 document.getElementById("questionText").value="";
 document.getElementById("questionAnswer").value="";
-
 
 renderQuestions();
 
@@ -1439,7 +1367,6 @@ let chapter=
 document.getElementById("newChapter")
 .value.trim();
 
-
 if(!chapter){
 
 alert("Enter a chapter name.");
@@ -1448,17 +1375,11 @@ return;
 
 }
 
-
 if(classNumber==="11"){
-
 chapters11.push(chapter);
-
 }else{
-
 chapters12.push(chapter);
-
 }
-
 
 document.getElementById("newChapter").value="";
 
@@ -1467,9 +1388,7 @@ alert(
 );
 
 if(selectedClass===Number(classNumber)){
-
 loadCourses(selectedClass);
-
 }
 
 }
@@ -1486,21 +1405,17 @@ document.getElementById("liveContainer");
 
 container.innerHTML="";
 
-
 if(liveClasses.length===0){
 
 container.innerHTML=`
-
 <div class="card empty">
 🔴 No live classes scheduled.
 </div>
-
 `;
 
 return;
 
 }
-
 
 liveClasses.forEach(function(item){
 
@@ -1517,7 +1432,7 @@ LIVE CLASS
 <h3>${safe(item.title)}</h3>
 
 <p class="muted">
-Class ${item.classNumber}
+Class ${safe(item.classNumber)}
 • ${safe(item.chapter)}
 </p>
 
@@ -1554,21 +1469,17 @@ document.getElementById("notificationContainer");
 
 container.innerHTML="";
 
-
 if(notifications.length===0){
 
 container.innerHTML=`
-
 <div class="card empty">
 🔔 No notifications yet.
 </div>
-
 `;
 
 return;
 
 }
-
 
 notifications.forEach(function(item){
 
@@ -1603,14 +1514,10 @@ container.appendChild(card);
 
 function renderQuestions(){
 
-if(questions.length===0){
+let container=
+document.getElementById("teacherQuestions");
 
-return;
-
-}
-
-let page=
-document.getElementById("practice");
+container.innerHTML="";
 
 questions.forEach(function(item,index){
 
@@ -1638,7 +1545,7 @@ ${safe(item.answer)}
 
 `;
 
-page.appendChild(card);
+container.appendChild(card);
 
 });
 
@@ -1659,9 +1566,6 @@ document.getElementById("homeNotes");
 
 let notificationBox=
 document.getElementById("homeNotifications");
-
-
-/* LIVE */
 
 if(liveClasses.length===0){
 
@@ -1686,7 +1590,7 @@ LIVE CLASS
 <h3>${safe(item.title)}</h3>
 
 <p class="muted">
-Class ${item.classNumber}
+Class ${safe(item.classNumber)}
 • ${safe(item.chapter)}
 </p>
 
@@ -1699,9 +1603,6 @@ Class ${item.classNumber}
 `;
 
 }
-
-
-/* NOTES */
 
 if(notes.length===0){
 
@@ -1722,7 +1623,7 @@ notesBox.innerHTML=`
 <h3>${safe(item.title)}</h3>
 
 <p class="muted">
-Class ${item.classNumber}
+Class ${safe(item.classNumber)}
 • Uploaded by Karan
 </p>
 
@@ -1730,9 +1631,6 @@ Class ${item.classNumber}
 `;
 
 }
-
-
-/* NOTIFICATIONS */
 
 if(notifications.length===0){
 
@@ -1775,7 +1673,6 @@ document.getElementById("teacherPassword")
 let message=
 document.getElementById("loginMessage");
 
-
 if(password==="Coco123"){
 
 document.getElementById("teacherDashboard")
@@ -1806,11 +1703,8 @@ function openTeacherForm(type){
 
 document.querySelectorAll(".teacher-form")
 .forEach(function(form){
-
 form.style.display="none";
-
 });
-
 
 let form=
 document.getElementById(type+"Form");
@@ -1839,9 +1733,7 @@ let answer=
 document.getElementById(id);
 
 if(!answer){
-
 return;
-
 }
 
 answer.style.display=
@@ -1899,7 +1791,6 @@ return String(text)
 
 }
 
-
 function safeURL(url){
 
 return String(url)
@@ -1915,36 +1806,15 @@ return String(url)
 loadCourses(11);
 
 renderNotes();
-
 renderLive();
-
 renderNotifications();
-
 renderHome();
 
-</script>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+/* Load permanent notes from Firebase */
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB7wh8waM4mD_nXz_wNmT2jKEE-ob02oRU",
-    authDomain: "mathnova-80ebb.firebaseapp.com",
-    projectId: "mathnova-80ebb",
-    storageBucket: "mathnova-80ebb.firebasestorage.app",
-    messagingSenderId: "334372490207",
-    appId: "1:334372490207:web:4008da2a60e80fc46ad26a",
-    measurementId: "G-B333D589NL"
-  };
+loadNotesFromFirebase();
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 </script>
+
 </body>
 </html>
