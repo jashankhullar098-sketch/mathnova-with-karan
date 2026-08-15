@@ -2,145 +2,167 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MathNova with Karan</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f4f6fb;
-    color:#222;
+  background:#f4f7fb;
+  color:#172033;
 }
 
 header{
-    background:#173b8f;
-    color:white;
-    padding:22px 15px;
-    text-align:center;
+  background:linear-gradient(135deg,#173b8f,#2467d1);
+  color:white;
+  padding:25px 18px;
+  text-align:center;
 }
 
 header h1{
-    font-size:27px;
+  font-size:30px;
 }
 
 header p{
-    margin-top:7px;
-    font-size:14px;
+  margin-top:7px;
+  font-size:15px;
 }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:18px;
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  background:white;
+  padding:12px;
+  box-shadow:0 2px 8px #0002;
+}
+
+nav button{
+  border:0;
+  background:#e8efff;
+  color:#173b8f;
+  padding:10px 14px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+nav button:hover{
+  background:#173b8f;
+  color:white;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+.hero{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 3px 12px #0001;
+  margin-bottom:20px;
+}
+
+.hero h2{
+  color:#173b8f;
+  margin-bottom:10px;
+}
+
+.card-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
 }
 
 .card{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    margin:15px 0;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 3px 10px #0001;
 }
 
-.card h2{
-    margin-bottom:12px;
+.card h3{
+  color:#173b8f;
+  margin-bottom:8px;
 }
 
-button{
-    width:100%;
-    border:0;
-    border-radius:10px;
-    padding:14px;
-    margin-top:10px;
-    background:#173b8f;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#102d70;
-}
-
-.back{
-    background:#555;
-}
-
-.hidden{
-    display:none;
-}
-
-.chapter{
-    border-left:5px solid #173b8f;
-}
-
-.feature{
-    margin:8px 0;
-    line-height:1.7;
-}
-
-.search{
-    width:100%;
-    padding:13px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    font-size:16px;
-    margin-top:10px;
-}
-
-.question{
-    margin-top:15px;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.option{
-    background:#eef2ff;
-    color:#222;
-    text-align:left;
-}
-
-.result{
-    margin-top:15px;
-    font-weight:bold;
-    font-size:17px;
-}
-
-.video{
-    background:#f1f4ff;
-    padding:15px;
-    border-radius:10px;
-    margin-top:12px;
+.card button,
+.action{
+  margin-top:12px;
+  padding:10px 15px;
+  border:0;
+  border-radius:10px;
+  background:#2467d1;
+  color:white;
+  cursor:pointer;
 }
 
 input,textarea,select{
-    width:100%;
-    padding:12px;
-    margin-top:8px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:15px;
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:1px solid #ccd4e0;
+  border-radius:10px;
 }
 
 textarea{
-    min-height:100px;
-    resize:vertical;
+  min-height:120px;
+  resize:vertical;
 }
 
-.teacher{
-    border-left:5px solid #e5a100;
+.note{
+  background:#fffdf0;
+  border-left:5px solid #f0b400;
+  padding:15px;
+  margin:12px 0;
+  border-radius:8px;
+}
+
+.question{
+  background:white;
+  padding:16px;
+  margin:12px 0;
+  border-radius:12px;
+  box-shadow:0 2px 8px #0001;
+}
+
+.answer{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  background:#eaf7ea;
+  border-radius:8px;
 }
 
 footer{
-    text-align:center;
-    padding:25px;
-    color:#666;
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+  background:#172033;
+  color:white;
+}
+
+.small{
+  color:#667085;
+  font-size:14px;
 }
 </style>
 </head>
@@ -148,1277 +170,321 @@ footer{
 <body>
 
 <header>
-    <h1>📐 MathNova with Karan</h1>
-    <p>Mathematics for CBSE & PSEB | Class 11 & 12</p>
+  <h1>📐 MathNova with Karan</h1>
+  <p>CBSE & PSEB Mathematics • Class 11 & 12</p>
 </header>
 
-<div class="container">
+<nav>
+  <button onclick="showSection('home')">🏠 Home</button>
+  <button onclick="showSection('chapters')">📚 Chapters</button>
+  <button onclick="showSection('notes')">📝 Notes</button>
+  <button onclick="showSection('questions')">❓ Important Questions</button>
+  <button onclick="showSection('teacher')">👨‍🏫 Teacher Panel</button>
+</nav>
+
+<main>
 
 <!-- HOME -->
-<section id="home">
+<section id="home" class="section active">
 
-<div class="card">
-<h2>🎓 Select Your Class</h2>
+  <div class="hero">
+    <h2>Welcome to MathNova 🚀</h2>
+    <p>
+      Learn Mathematics chapter-by-chapter with simple explanations,
+      notes and important questions.
+    </p>
 
-<button onclick="selectClass(11)">Class 11</button>
-<button onclick="selectClass(12)">Class 12</button>
-</div>
+    <button class="action" onclick="showSection('chapters')">
+      Start Learning
+    </button>
+  </div>
 
-<div class="card">
-<h2>✨ MathNova Features</h2>
+  <div class="card-container">
 
-<p class="feature">🎥 Video Classes</p>
-<p class="feature">🔴 Live Classes</p>
-<p class="feature">📄 Chapter Notes</p>
-<p class="feature">📝 Practice Tests</p>
-<p class="feature">⭐ Important Questions</p>
-<p class="feature">🔖 Bookmarks</p>
-<p class="feature">🔍 Search</p>
-<p class="feature">👨‍🏫 Teacher Panel</p>
-</div>
+    <div class="card">
+      <h3>📚 Chapters</h3>
+      <p>Explore Class 11 and Class 12 Mathematics chapters.</p>
+      <button onclick="showSection('chapters')">Open Chapters</button>
+    </div>
 
-</section>
+    <div class="card">
+      <h3>📝 Notes</h3>
+      <p>Quick revision notes and important formulas.</p>
+      <button onclick="showSection('notes')">Open Notes</button>
+    </div>
 
+    <div class="card">
+      <h3>❓ Important Questions</h3>
+      <p>Practice important Mathematics questions.</p>
+      <button onclick="showSection('questions')">Practice</button>
+    </div>
 
-<!-- CLASS -->
-<section id="classPage" class="hidden">
-
-<div class="card">
-
-<h2 id="classTitle"></h2>
-
-<p>Select your board:</p>
-
-<button onclick="selectBoard('CBSE')">📘 CBSE</button>
-<button onclick="selectBoard('PSEB')">📗 PSEB</button>
-
-<button class="back" onclick="goHome()">← Back</button>
-
-</div>
-
-</section>
-
-
-<!-- DASHBOARD -->
-<section id="dashboard" class="hidden">
-
-<div class="card">
-
-<h2 id="dashboardTitle"></h2>
-
-<button onclick="openChapters()">📚 Chapters</button>
-
-<button onclick="openVideos()">🎥 Video Classes</button>
-
-<button onclick="openLive()">🔴 Live Class</button>
-
-<button onclick="openNotes()">📄 Notes</button>
-
-<button onclick="startTest()">📝 Practice Test</button>
-
-<button onclick="openImportant()">⭐ Important Questions</button>
-
-<button onclick="openBookmarks()">🔖 Bookmarks</button>
-
-<button onclick="openSearch()">🔍 Search</button>
-
-<button onclick="openTeacher()">👨‍🏫 Teacher Panel</button>
-
-<button class="back" onclick="backToClass()">← Back</button>
-
-</div>
-
+  </div>
 </section>
 
 
 <!-- CHAPTERS -->
-<section id="chapters" class="hidden">
+<section id="chapters" class="section">
 
-<div class="card">
+  <div class="hero">
+    <h2>📚 Mathematics Chapters</h2>
+    <p class="small">Choose your class.</p>
+  </div>
 
-<h2>📚 Chapters</h2>
+  <div class="card-container">
 
-<input
-class="search"
-id="chapterSearch"
-placeholder="Search chapter..."
-onkeyup="searchChapters()"
->
+    <div class="card">
+      <h3>Class 11</h3>
+      <p>Sets</p>
+      <p>Relations & Functions</p>
+      <p>Trigonometric Functions</p>
+      <p>Complex Numbers</p>
+      <p>Linear Inequalities</p>
+      <p>Permutations & Combinations</p>
+      <p>Binomial Theorem</p>
+      <p>Sequences & Series</p>
+      <p>Straight Lines</p>
+      <p>Conic Sections</p>
+      <p>Statistics</p>
+      <p>Probability</p>
+    </div>
 
-<div id="chapterList"></div>
+    <div class="card">
+      <h3>Class 12</h3>
+      <p>Relations & Functions</p>
+      <p>Inverse Trigonometric Functions</p>
+      <p>Matrices</p>
+      <p>Determinants</p>
+      <p>Continuity & Differentiability</p>
+      <p>Applications of Derivatives</p>
+      <p>Integrals</p>
+      <p>Differential Equations</p>
+      <p>Vectors</p>
+      <p>3D Geometry</p>
+      <p>Probability</p>
+    </div>
 
-<button class="back" onclick="backToDashboard()">← Back</button>
-
-</div>
-
-</section>
-
-
-<!-- CHAPTER CONTENT -->
-<section id="chapterContent" class="hidden">
-
-<div class="card">
-
-<h2 id="chapterName"></h2>
-
-<p id="chapterDescription"></p>
-
-<button onclick="bookmarkCurrent()">🔖 Bookmark Chapter</button>
-
-<button onclick="openVideos()">🎥 Watch Classes</button>
-
-<button onclick="openNotes()">📄 Open Notes</button>
-
-<button onclick="startTest()">📝 Practice Questions</button>
-
-<button class="back" onclick="openChapters()">← Back</button>
-
-</div>
-
-</section>
-
-
-<!-- VIDEOS -->
-<section id="videos" class="hidden">
-
-<div class="card">
-
-<h2>🎥 Video Classes</h2>
-
-<div class="video">
-<h3>📐 Mathematics Lecture</h3>
-<p>YouTube classes added by Karan will appear here.</p>
-
-<a href="https://www.youtube.com/@KaranJagotra-k1p"
-target="_blank">
-
-<button>▶️ Open Karan's YouTube Channel</button>
-
-</a>
-</div>
-
-<div class="video">
-<h3>🎥 Direct Video</h3>
-<p>Direct-upload videos will be connected through the Teacher Panel/backend.</p>
-
-<button onclick="alert('Direct video upload will be connected in the backend stage.')">
-▶️ Watch Direct Video
-</button>
-
-</div>
-
-<button class="back" onclick="backToDashboard()">← Back</button>
-
-</div>
-
-</section>
-
-
-<!-- LIVE -->
-<section id="live" class="hidden">
-
-<div class="card">
-
-<h2>🔴 Live Class</h2>
-
-<div class="video">
-
-<h3>🔴 MathNova Live Class</h3>
-
-<p>
-Karan's live-class link will appear here when published.
-</p>
-
-<button onclick="alert('No live class has been published yet.')">
-🔴 Join Live Class
-</button>
-
-</div>
-
-<button class="back" onclick="backToDashboard()">← Back</button>
-
-</div>
-
+  </div>
 </section>
 
 
 <!-- NOTES -->
-<section id="notes" class="hidden">
+<section id="notes" class="section">
 
-<div class="card">
+  <div class="hero">
+    <h2>📝 Mathematics Notes</h2>
+    <p>Quick revision material.</p>
+  </div>
 
-<h2>📄 Chapter Notes</h2>
+  <div class="note">
+    <h3>Sets</h3>
+    <p>
+      A set is a well-defined collection of distinct objects.
+    </p>
+  </div>
 
-<p>Notes uploaded by Karan will appear here.</p>
+  <div class="note">
+    <h3>Quadratic Equation</h3>
+    <p>
+      A quadratic equation is generally written as:
+      ax² + bx + c = 0, where a ≠ 0.
+    </p>
+  </div>
 
-<div id="notesList">
+  <div class="note">
+    <h3>Discriminant</h3>
+    <p>
+      For ax² + bx + c = 0,
+      D = b² − 4ac.
+    </p>
+  </div>
 
-<div class="video">
-<h3>📖 Mathematics Notes</h3>
-
-<button onclick="alert('PDF notes will be connected through the Teacher Panel/backend.')">
-📄 Open Notes
-</button>
-
-</div>
-
-</div>
-
-<button class="back" onclick="backToDashboard()">← Back</button>
-
-</div>
-
-</section>
-
-
-<!-- PRACTICE -->
-<section id="practice" class="hidden">
-
-<div class="card">
-
-<h2>📝 Practice Test</h2>
-
-<p id="questionNumber"></p>
-
-<p class="question" id="questionText"></p>
-
-<div id="options"></div>
-
-<p class="result" id="quizResult"></p>
-
-<button
-id="nextButton"
-class="hidden"
-onclick="nextQuestion()">
-
-Next Question →
-
-</button>
-
-<button
-id="finishButton"
-class="hidden"
-onclick="finishTest()">
-
-🏁 Finish Test
-
-</button>
-
-<button class="back" onclick="backToDashboard()">
-← Back
-</button>
-
-</div>
+  <div class="note">
+    <h3>Important Identity</h3>
+    <p>
+      (a + b)² = a² + 2ab + b²
+    </p>
+  </div>
 
 </section>
 
 
-<!-- RESULT -->
-<section id="resultPage" class="hidden">
+<!-- QUESTIONS -->
+<section id="questions" class="section">
 
-<div class="card">
+  <div class="hero">
+    <h2>❓ Important Questions</h2>
+    <p>Tap "Show Answer" to check the answer.</p>
+  </div>
 
-<h2>🏆 Test Result</h2>
+  <div class="question">
+    <b>1. If A = {1,2,3} and B = {3,4,5}, find A ∩ B.</b>
+    <button class="action" onclick="toggleAnswer('a1')">
+      Show Answer
+    </button>
+    <div id="a1" class="answer">
+      A ∩ B = {3}
+    </div>
+  </div>
 
-<p id="finalScore"></p>
+  <div class="question">
+    <b>2. Find the discriminant of x² − 5x + 6 = 0.</b>
+    <button class="action" onclick="toggleAnswer('a2')">
+      Show Answer
+    </button>
+    <div id="a2" class="answer">
+      D = b² − 4ac = 25 − 24 = 1
+    </div>
+  </div>
 
-<button onclick="startTest()">🔄 Retry Test</button>
-
-<button class="back" onclick="backToDashboard()">
-← Back
-</button>
-
-</div>
-
-</section>
-
-
-<!-- IMPORTANT -->
-<section id="important" class="hidden">
-
-<div class="card">
-
-<h2>⭐ Important Questions</h2>
-
-<ol id="importantList"></ol>
-
-<button class="back" onclick="backToDashboard()">
-← Back
-</button>
-
-</div>
-
-</section>
-
-
-<!-- BOOKMARKS -->
-<section id="bookmarks" class="hidden">
-
-<div class="card">
-
-<h2>🔖 Bookmarked Chapters</h2>
-
-<div id="bookmarkList"></div>
-
-<button class="back" onclick="backToDashboard()">
-← Back
-</button>
-
-</div>
-
-</section>
-
-
-<!-- SEARCH -->
-<section id="searchPage" class="hidden">
-
-<div class="card">
-
-<h2>🔍 Search Mathematics</h2>
-
-<input
-class="search"
-id="globalSearch"
-placeholder="Search chapter..."
-onkeyup="globalSearch()"
->
-
-<div id="searchResults"></div>
-
-<button class="back" onclick="backToDashboard()">
-← Back
-</button>
-
-</div>
-
-</section>
-
-
-<!-- TEACHER LOGIN -->
-<section id="teacherLogin" class="hidden">
-
-<div class="card teacher">
-
-<h2>👨‍🏫 Teacher Panel</h2>
-
-<p>Teacher access only.</p>
-
-<input
-type="password"
-id="teacherPassword"
-placeholder="Enter teacher password"
->
-
-<button onclick="teacherLogin()">
-🔐 Login
-</button>
-
-<p id="loginMessage"></p>
-
-<button class="back" onclick="backToDashboard()">
-← Back
-</button>
-
-</div>
+  <div class="question">
+    <b>3. What is the value of sin²θ + cos²θ?</b>
+    <button class="action" onclick="toggleAnswer('a3')">
+      Show Answer
+    </button>
+    <div id="a3" class="answer">
+      1
+    </div>
+  </div>
 
 </section>
 
 
 <!-- TEACHER PANEL -->
-<section id="teacherPanel" class="hidden">
+<section id="teacher" class="section">
 
-<div class="card teacher">
+  <div class="hero">
+    <h2>👨‍🏫 Teacher Panel</h2>
+    <p>Teacher login for managing MathNova content.</p>
 
-<h2>👨‍🏫 Karan's Teacher Panel</h2>
+    <input
+      type="password"
+      id="teacherPassword"
+      placeholder="Enter teacher password"
+    >
 
-<p>Welcome, Karan.</p>
+    <button class="action" onclick="teacherLogin()">
+      Login
+    </button>
 
-<h3 style="margin-top:20px;">
-🎥 Add YouTube Class
-</h3>
+    <p id="loginMessage"></p>
+  </div>
 
-<input
-id="videoTitle"
-placeholder="Video title"
->
+  <div id="teacherContent" style="display:none;">
 
-<input
-id="youtubeLink"
-placeholder="YouTube video/channel link"
->
+    <div class="hero">
+      <h2>Add a Note</h2>
 
-<button onclick="saveVideo()">
-➕ Add Video
-</button>
+      <input
+        type="text"
+        id="noteTitle"
+        placeholder="Note title"
+      >
 
+      <textarea
+        id="noteText"
+        placeholder="Write your note here..."
+      ></textarea>
 
-<h3 style="margin-top:25px;">
-📄 Add Notes
-</h3>
+      <button class="action" onclick="addNote()">
+        Add Note
+      </button>
+    </div>
 
-<input
-id="notesTitle"
-placeholder="Notes title"
->
+    <div id="teacherNotes"></div>
 
-<input
-id="notesLink"
-placeholder="PDF/Notes link"
->
-
-<button onclick="saveNotes()">
-➕ Add Notes
-</button>
-
-
-<h3 style="margin-top:25px;">
-🔴 Add Live Class
-</h3>
-
-<input
-id="liveLink"
-placeholder="Live class link"
->
-
-<button onclick="saveLive()">
-➕ Add Live Class
-</button>
-
-
-<h3 style="margin-top:25px;">
-📚 Select Chapter
-</h3>
-
-<select id="teacherChapter"></select>
-
-<button onclick="alert('Content assignment interface ready. Backend connection will come next.')">
-📌 Assign Content To Chapter
-</button>
-
-<button class="back" onclick="teacherLogout()">
-🚪 Logout
-</button>
-
-</div>
+  </div>
 
 </section>
 
+</main>
 
 <footer>
-© 2026 MathNova with Karan
+  <p>© 2026 MathNova with Karan</p>
+  <p>Learn • Practice • Improve 📐</p>
 </footer>
-
-</div>
 
 
 <script>
 
-let selectedClass = "";
-let selectedBoard = "";
-let selectedChapter = "";
+function showSection(sectionId){
 
-let bookmarks =
-JSON.parse(localStorage.getItem("mathnovaBookmarks")) || [];
+  const sections=document.querySelectorAll(".section");
 
+  sections.forEach(function(section){
+    section.classList.remove("active");
+  });
 
-/* CHAPTERS */
+  document.getElementById(sectionId).classList.add("active");
 
-const chapters11 = [
-"Sets",
-"Relations and Functions",
-"Trigonometric Functions",
-"Principle of Mathematical Induction",
-"Complex Numbers and Quadratic Equations",
-"Linear Inequalities",
-"Permutations and Combinations",
-"Binomial Theorem",
-"Sequences and Series",
-"Straight Lines",
-"Conic Sections",
-"Introduction to Three Dimensional Geometry",
-"Limits and Derivatives",
-"Statistics",
-"Probability"
-];
-
-const chapters12 = [
-"Relations and Functions",
-"Inverse Trigonometric Functions",
-"Matrices",
-"Determinants",
-"Continuity and Differentiability",
-"Applications of Derivatives",
-"Integrals",
-"Applications of Integrals",
-"Differential Equations",
-"Vector Algebra",
-"Three Dimensional Geometry",
-"Linear Programming",
-"Probability"
-];
-
-
-/* QUIZ */
-
-const questions = [
-
-{
-q:"Which of the following is a well-defined set?",
-options:[
-"Collection of good students",
-"Collection of beautiful flowers",
-"Collection of all natural numbers",
-"Collection of intelligent people"
-],
-answer:2
-},
-
-{
-q:"If A = {1,2,3}, how many elements are in A?",
-options:[
-"1",
-"2",
-"3",
-"4"
-],
-answer:2
-},
-
-{
-q:"The value of sin 90° is:",
-options:[
-"0",
-"1",
-"-1",
-"1/2"
-],
-answer:1
-},
-
-{
-q:"The value of 2 + 3 × 4 is:",
-options:[
-"20",
-"14",
-"24",
-"10"
-],
-answer:1
-},
-
-{
-q:"If x² = 25, then x can be:",
-options:[
-"5 only",
-"-5 only",
-"5 or -5",
-"25"
-],
-answer:2
-}
-
-];
-
-let currentQuestion = 0;
-let score = 0;
-
-
-/* NAVIGATION */
-
-function hideAll(){
-
-const pages = [
-"home",
-"classPage",
-"dashboard",
-"chapters",
-"chapterContent",
-"videos",
-"live",
-"notes",
-"practice",
-"resultPage",
-"important",
-"bookmarks",
-"searchPage",
-"teacherLogin",
-"teacherPanel"
-];
-
-pages.forEach(id=>{
-document.getElementById(id).classList.add("hidden");
-});
-
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
 
 
-function selectClass(cls){
+function toggleAnswer(id){
 
-selectedClass = cls;
+  const answer=document.getElementById(id);
 
-hideAll();
-
-document.getElementById("classTitle").innerText =
-"🎓 Class " + cls;
-
-document.getElementById("classPage")
-.classList.remove("hidden");
-
+  if(answer.style.display==="block"){
+    answer.style.display="none";
+  }else{
+    answer.style.display="block";
+  }
 }
 
-
-function selectBoard(board){
-
-selectedBoard = board;
-
-hideAll();
-
-document.getElementById("dashboardTitle").innerText =
-"Class " + selectedClass +
-" • " + selectedBoard +
-" Mathematics";
-
-document.getElementById("dashboard")
-.classList.remove("hidden");
-
-}
-
-
-function getChapters(){
-
-return selectedClass == 11
-? chapters11
-: chapters12;
-
-}
-
-
-/* CHAPTERS */
-
-function openChapters(){
-
-hideAll();
-
-displayChapters(getChapters());
-
-document.getElementById("chapters")
-.classList.remove("hidden");
-
-}
-
-
-function displayChapters(list){
-
-let html = "";
-
-list.forEach((chapter,index)=>{
-
-html += `
-<div class="card chapter">
-
-<h3>Chapter ${index+1}</h3>
-
-<p>${chapter}</p>
-
-<button onclick="openChapter('${escapeText(chapter)}')">
-Open Chapter
-</button>
-
-</div>
-`;
-
-});
-
-document.getElementById("chapterList").innerHTML = html;
-
-}
-
-
-function escapeText(text){
-
-return text.replace(/'/g,"\\'");
-
-}
-
-
-function searchChapters(){
-
-let value =
-document.getElementById("chapterSearch")
-.value.toLowerCase();
-
-let filtered =
-getChapters().filter(chapter =>
-chapter.toLowerCase().includes(value)
-);
-
-displayChapters(filtered);
-
-}
-
-
-function openChapter(name){
-
-selectedChapter = name;
-
-hideAll();
-
-document.getElementById("chapterName").innerText =
-"📚 " + name;
-
-document.getElementById("chapterDescription").innerText =
-"Class " + selectedClass +
-" • " + selectedBoard +
-" Mathematics. Content for " +
-name +
-" will be added here.";
-
-document.getElementById("chapterContent")
-.classList.remove("hidden");
-
-}
-
-
-/* BOOKMARKS */
-
-function bookmarkCurrent(){
-
-if(!selectedChapter){
-
-alert("Open a chapter first.");
-
-return;
-
-}
-
-if(!bookmarks.includes(selectedChapter)){
-
-bookmarks.push(selectedChapter);
-
-localStorage.setItem(
-"mathnovaBookmarks",
-JSON.stringify(bookmarks)
-);
-
-alert("🔖 Chapter bookmarked!");
-
-}else{
-
-alert("Already bookmarked!");
-
-}
-
-}
-
-
-function openBookmarks(){
-
-hideAll();
-
-let list =
-document.getElementById("bookmarkList");
-
-if(bookmarks.length === 0){
-
-list.innerHTML =
-"<p>No bookmarked chapters yet.</p>";
-
-}else{
-
-list.innerHTML = "";
-
-bookmarks.forEach(chapter=>{
-
-let p =
-document.createElement("p");
-
-p.innerText =
-"🔖 " + chapter;
-
-p.style.margin =
-"12px 0";
-
-list.appendChild(p);
-
-});
-
-}
-
-document.getElementById("bookmarks")
-.classList.remove("hidden");
-
-}
-
-
-/* VIDEOS */
-
-function openVideos(){
-
-hideAll();
-
-document.getElementById("videos")
-.classList.remove("hidden");
-
-}
-
-
-/* LIVE */
-
-function openLive(){
-
-hideAll();
-
-document.getElementById("live")
-.classList.remove("hidden");
-
-}
-
-
-/* NOTES */
-
-function openNotes(){
-
-hideAll();
-
-document.getElementById("notes")
-.classList.remove("hidden");
-
-}
-
-
-/* QUIZ */
-
-function startTest(){
-
-currentQuestion = 0;
-score = 0;
-
-hideAll();
-
-document.getElementById("practice")
-.classList.remove("hidden");
-
-loadQuestion();
-
-}
-
-
-function loadQuestion(){
-
-let q =
-questions[currentQuestion];
-
-document.getElementById("questionNumber")
-.innerText =
-"Question " +
-(currentQuestion+1) +
-" of " +
-questions.length;
-
-document.getElementById("questionText")
-.innerText = q.q;
-
-document.getElementById("quizResult")
-.innerText = "";
-
-document.getElementById("nextButton")
-.classList.add("hidden");
-
-document.getElementById("finishButton")
-.classList.add("hidden");
-
-let html = "";
-
-q.options.forEach((option,index)=>{
-
-html += `
-<button class="option"
-onclick="checkQuizAnswer(${index})">
-
-${String.fromCharCode(65+index)}. ${option}
-
-</button>
-`;
-
-});
-
-document.getElementById("options")
-.innerHTML = html;
-
-}
-
-
-function checkQuizAnswer(index){
-
-let q =
-questions[currentQuestion];
-
-let buttons =
-document.querySelectorAll(
-"#options button"
-);
-
-buttons.forEach(button=>{
-button.disabled = true;
-});
-
-if(index === q.answer){
-
-score++;
-
-document.getElementById("quizResult")
-.innerText =
-"✅ Correct Answer!";
-
-document.getElementById("quizResult")
-.style.color = "green";
-
-}else{
-
-document.getElementById("quizResult")
-.innerText =
-"❌ Wrong Answer!";
-
-document.getElementById("quizResult")
-.style.color = "red";
-
-}
-
-if(currentQuestion <
-questions.length-1){
-
-document.getElementById("nextButton")
-.classList.remove("hidden");
-
-}else{
-
-document.getElementById("finishButton")
-.classList.remove("hidden");
-
-}
-
-}
-
-
-function nextQuestion(){
-
-currentQuestion++;
-
-loadQuestion();
-
-}
-
-
-function finishTest(){
-
-hideAll();
-
-document.getElementById("finalScore")
-.innerText =
-"You scored " +
-score +
-" out of " +
-questions.length +
-".";
-
-document.getElementById("resultPage")
-.classList.remove("hidden");
-
-}
-
-
-/* IMPORTANT QUESTIONS */
-
-function openImportant(){
-
-hideAll();
-
-let list =
-document.getElementById("importantList");
-
-list.innerHTML = "";
-
-getChapters()
-.slice(0,10)
-.forEach(chapter=>{
-
-let li =
-document.createElement("li");
-
-li.innerText =
-"Prepare important questions from " +
-chapter + ".";
-
-li.style.margin =
-"10px 0";
-
-list.appendChild(li);
-
-});
-
-document.getElementById("important")
-.classList.remove("hidden");
-
-}
-
-
-/* SEARCH */
-
-function openSearch(){
-
-hideAll();
-
-document.getElementById("searchPage")
-.classList.remove("hidden");
-
-}
-
-
-function globalSearch(){
-
-let value =
-document.getElementById("globalSearch")
-.value.toLowerCase();
-
-let results =
-getChapters().filter(chapter =>
-chapter.toLowerCase()
-.includes(value)
-);
-
-let html = "";
-
-if(value === ""){
-
-html =
-"<p>Type something to search.</p>";
-
-}else if(results.length === 0){
-
-html =
-"<p>❌ No chapter found.</p>";
-
-}else{
-
-results.forEach(chapter=>{
-
-html += `
-<div class="card">
-
-<h3>📚 ${chapter}</h3>
-
-<button onclick="openChapter('${escapeText(chapter)}')">
-Open
-</button>
-
-</div>
-`;
-
-});
-
-}
-
-document.getElementById("searchResults")
-.innerHTML = html;
-
-}
-
-
-/* TEACHER PANEL */
-
-function openTeacher(){
-
-hideAll();
-
-document.getElementById("teacherLogin")
-.classList.remove("hidden");
-
-}
-
-
-/*
-DEMO PASSWORD ONLY.
-
-This is NOT secure authentication.
-Real Karan-only login will be added
-with a backend later.
-*/
 
 function teacherLogin(){
 
-let password =
-document.getElementById("teacherPassword")
-.value;
+  const password=document.getElementById("teacherPassword").value;
 
-if(password === "coco123"){
+  /*
+   Teacher password:
+   Coco123
+  */
 
-hideAll();
+  if(password==="Coco123"){
 
-document.getElementById("teacherPanel")
-.classList.remove("hidden");
+    document.getElementById("teacherContent").style.display="block";
 
-loadTeacherChapters();
+    document.getElementById("loginMessage").innerHTML=
+      "✅ Login successful!";
 
-}else{
+  }else{
 
-document.getElementById("loginMessage")
-.innerText =
-"❌ Incorrect password.";
+    document.getElementById("loginMessage").innerHTML=
+      "❌ Incorrect password.";
 
-}
-
-}
-
-
-function teacherLogout(){
-
-hideAll();
-
-document.getElementById("dashboard")
-.classList.remove("hidden");
-
+  }
 }
 
 
-function loadTeacherChapters(){
+function addNote(){
 
-let select =
-document.getElementById("teacherChapter");
+  const title=document.getElementById("noteTitle").value;
+  const text=document.getElementById("noteText").value;
 
-select.innerHTML = "";
+  if(title==="" || text===""){
+    alert("Please enter both title and note.");
+    return;
+  }
 
-getChapters().forEach(chapter=>{
+  const note=document.createElement("div");
 
-let option =
-document.createElement("option");
+  note.className="note";
 
-option.value = chapter;
-option.innerText = chapter;
+  note.innerHTML=
+    "<h3>"+title+"</h3>"+
+    "<p>"+text+"</p>";
 
-select.appendChild(option);
+  document.getElementById("teacherNotes").appendChild(note);
 
-});
+  document.getElementById("noteTitle").value="";
+  document.getElementById("noteText").value="";
 
-}
-
-
-function saveVideo(){
-
-let title =
-document.getElementById("videoTitle")
-.value;
-
-let link =
-document.getElementById("youtubeLink")
-.value;
-
-if(title === "" || link === ""){
-
-alert("Please enter video title and link.");
-
-return;
-
-}
-
-alert(
-"🎥 Video added in demo mode.\n\n" +
-title
-);
-
-document.getElementById("videoTitle")
-.value = "";
-
-document.getElementById("youtubeLink")
-.value = "";
-
-}
-
-
-function saveNotes(){
-
-let title =
-document.getElementById("notesTitle")
-.value;
-
-let link =
-document.getElementById("notesLink")
-.value;
-
-if(title === "" || link === ""){
-
-alert("Please enter notes title and PDF link.");
-
-return;
-
-}
-
-alert(
-"📄 Notes added in demo mode.\n\n" +
-title
-);
-
-document.getElementById("notesTitle")
-.value = "";
-
-document.getElementById("notesLink")
-.value = "";
-
-}
-
-
-function saveLive(){
-
-let link =
-document.getElementById("liveLink")
-.value;
-
-if(link === ""){
-
-alert("Please enter the live class link.");
-
-return;
-
-}
-
-alert(
-"🔴 Live class added in demo mode."
-);
-
-document.getElementById("liveLink")
-.value = "";
-
-}
-
-
-/* HOME / BACK */
-
-function goHome(){
-
-hideAll();
-
-document.getElementById("home")
-.classList.remove("hidden");
-
-}
-
-
-function backToClass(){
-
-hideAll();
-
-document.getElementById("classPage")
-.classList.remove("hidden");
-
-}
-
-
-function backToDashboard(){
-
-hideAll();
-
-document.getElementById("dashboard")
-.classList.remove("hidden");
-
+  alert("Note added successfully!");
 }
 
 </script>
