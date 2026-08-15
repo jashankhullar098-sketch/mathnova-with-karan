@@ -7,310 +7,319 @@
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,Helvetica,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    background:#f5f7fb;
-    color:#182033;
-    padding-bottom:80px;
+  background:#f5f7fb;
+  color:#172033;
+  padding-bottom:80px;
 }
 
 button{
-    border:0;
-    cursor:pointer;
+  border:0;
+  cursor:pointer;
 }
 
 .top{
-    background:linear-gradient(135deg,#172b70,#3867d6);
-    color:white;
-    padding:22px 18px 28px;
-    border-radius:0 0 28px 28px;
+  background:linear-gradient(135deg,#172b70,#3867d6);
+  color:white;
+  padding:20px 18px 28px;
+  border-radius:0 0 28px 28px;
 }
 
 .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-    font-size:23px;
-    font-weight:bold;
+  font-size:23px;
+  font-weight:bold;
 }
 
 .bell{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:#ffffff22;
-    color:white;
-    font-size:19px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#ffffff22;
+  color:white;
+  font-size:19px;
 }
 
 .greeting{
-    margin-top:25px;
+  margin-top:24px;
 }
 
 .greeting h1{
-    font-size:24px;
+  font-size:24px;
 }
 
 .greeting p{
-    margin-top:6px;
-    opacity:.85;
+  margin-top:6px;
+  opacity:.85;
 }
 
 main{
-    max-width:700px;
-    margin:auto;
-    padding:18px;
+  max-width:700px;
+  margin:auto;
+  padding:18px;
 }
 
 .page{
-    display:none;
+  display:none;
 }
 
 .page.active{
-    display:block;
+  display:block;
 }
 
 .section-title{
-    margin:12px 0;
-    font-size:20px;
+  margin:12px 0;
+  font-size:20px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:13px;
+  box-shadow:0 3px 12px #00000010;
 }
 
 .class-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.class-card,
-.card{
-    background:white;
-    border-radius:18px;
-    padding:18px;
-    box-shadow:0 3px 12px #00000010;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
 .class-card{
-    cursor:pointer;
-}
-
-.class-card:hover{
-    transform:translateY(-2px);
-}
-
-.class-icon{
-    font-size:30px;
-    margin-bottom:10px;
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 3px 12px #00000010;
+  cursor:pointer;
 }
 
 .class-card h3{
-    color:#2449a5;
+  color:#2449a5;
+  margin-bottom:6px;
+}
+
+.class-icon{
+  font-size:30px;
+  margin-bottom:10px;
 }
 
 .muted{
-    color:#707b8d;
-    font-size:13px;
-    margin-top:5px;
-}
-
-.card{
-    margin-bottom:13px;
-}
-
-.course-row,
-.chapter-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.course-icon,
-.chapter-number{
-    width:52px;
-    height:52px;
-    border-radius:15px;
-    background:#e9efff;
-    color:#2449a5;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.chapter-row{
-    justify-content:space-between;
-}
-
-.chapter-info{
-    flex:1;
-}
-
-.chapter-info h3{
-    font-size:16px;
+  color:#707b8d;
+  font-size:13px;
+  margin-top:5px;
 }
 
 .btn{
-    background:#315fd4;
-    color:white;
-    padding:11px 15px;
-    border-radius:10px;
-    font-weight:bold;
-    margin-top:10px;
+  background:#315fd4;
+  color:white;
+  padding:11px 15px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
 .btn-light{
-    background:#e9efff;
-    color:#2449a5;
-    padding:10px 14px;
-    border-radius:10px;
-    font-weight:bold;
+  background:#e9efff;
+  color:#2449a5;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
-.back{
-    background:#172b70;
-    color:white;
-    margin-bottom:15px;
+.btn-danger{
+  background:#e5484d;
+  color:white;
+  padding:10px 14px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
-.lesson-card{
-    margin-top:15px;
+.chapter-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.lesson-option{
-    background:#f7f9ff;
-    padding:14px;
-    border-radius:12px;
-    margin-top:10px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.chapter-number{
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  background:#e9efff;
+  color:#2449a5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  flex-shrink:0;
+}
+
+.chapter-info{
+  flex:1;
 }
 
 .note{
-    border-left:5px solid #315fd4;
-}
-
-.note h3{
-    margin-bottom:5px;
+  border-left:5px solid #315fd4;
 }
 
 .question{
-    line-height:1.5;
+  line-height:1.5;
 }
 
 .answer{
-    display:none;
-    margin-top:12px;
-    padding:12px;
-    background:#eaf7ec;
-    border-radius:10px;
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  background:#eaf7ec;
+  border-radius:10px;
 }
 
-.profile{
-    text-align:center;
+.live{
+  border-left:5px solid #e5484d;
 }
 
-.avatar{
-    width:78px;
-    height:78px;
-    border-radius:50%;
-    background:#315fd4;
-    color:white;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:32px;
+.live-badge{
+  display:inline-block;
+  background:#e5484d;
+  color:white;
+  padding:5px 9px;
+  border-radius:7px;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.notification{
+  border-left:5px solid #f2a900;
 }
 
 input,
-textarea{
-    width:100%;
-    padding:13px;
-    margin-top:10px;
-    border:1px solid #d3d9e4;
-    border-radius:10px;
-    outline:none;
+textarea,
+select{
+  width:100%;
+  padding:13px;
+  margin-top:9px;
+  border:1px solid #d3d9e4;
+  border-radius:10px;
+  outline:none;
+  background:white;
 }
 
 textarea{
-    min-height:120px;
-    resize:vertical;
+  min-height:110px;
+  resize:vertical;
 }
 
-#teacherArea{
-    display:none;
-    margin-top:20px;
+.teacher-menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:15px;
+}
+
+.teacher-option{
+  background:#f7f9ff;
+  border:1px solid #e1e7f5;
+  border-radius:15px;
+  padding:16px;
+  text-align:left;
+  cursor:pointer;
+}
+
+.teacher-option .emoji{
+  font-size:27px;
+  display:block;
+  margin-bottom:8px;
+}
+
+.teacher-option b{
+  color:#2449a5;
+}
+
+.teacher-form{
+  display:none;
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #e5e8ee;
+}
+
+.profile{
+  text-align:center;
+}
+
+.avatar{
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  background:#315fd4;
+  color:white;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
 }
 
 .message{
-    margin-top:10px;
-    font-size:14px;
+  margin-top:10px;
+  font-size:14px;
 }
 
 .bottom-nav{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    height:70px;
-    background:white;
-    box-shadow:0 -3px 15px #00000015;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    z-index:100;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:70px;
+  background:white;
+  box-shadow:0 -3px 15px #00000015;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:100;
 }
 
 .nav-item{
-    background:none;
-    color:#7b8494;
-    font-size:11px;
-    padding:5px;
+  background:none;
+  color:#7b8494;
+  font-size:11px;
+  padding:5px;
 }
 
 .nav-item span{
-    display:block;
-    font-size:21px;
-    margin-bottom:3px;
+  display:block;
+  font-size:21px;
+  margin-bottom:3px;
 }
 
 .nav-item.active{
-    color:#315fd4;
-    font-weight:bold;
-}
-
-.hidden{
-    display:none !important;
+  color:#315fd4;
+  font-weight:bold;
 }
 
 .empty{
-    text-align:center;
-    padding:25px;
-    color:#707b8d;
+  text-align:center;
+  padding:25px;
+  color:#707b8d;
 }
 
 @media(max-width:420px){
-    .class-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .logo{
-        font-size:20px;
-    }
-
-    .greeting h1{
-        font-size:21px;
-    }
+  .teacher-menu{
+    grid-template-columns:1fr 1fr;
+  }
 }
 </style>
 </head>
@@ -319,15 +328,18 @@ textarea{
 
 <header class="top">
 
-    <div class="topbar">
-        <div class="logo">📐 MathNova</div>
-        <button class="bell" onclick="showNotification()">🔔</button>
-    </div>
+<div class="topbar">
+<div class="logo">📐 MathNova</div>
 
-    <div class="greeting">
-        <h1>Hello, Student 👋</h1>
-        <p>Learn Mathematics with Karan</p>
-    </div>
+<button class="bell" onclick="showNotifications()">
+🔔
+</button>
+</div>
+
+<div class="greeting">
+<h1>Hello, Student 👋</h1>
+<p>Learn Mathematics with Karan</p>
+</div>
 
 </header>
 
@@ -337,61 +349,52 @@ textarea{
 <!-- HOME -->
 <section id="home" class="page active">
 
-    <h2 class="section-title">Choose your class</h2>
+<h2 class="section-title">Choose your class</h2>
 
-    <div class="class-grid">
+<div class="class-grid">
 
-        <div class="class-card" onclick="selectClass(11)">
-            <div class="class-icon">📘</div>
-            <h3>Class 11</h3>
-            <p class="muted">Mathematics</p>
-        </div>
+<div class="class-card" onclick="selectClass(11)">
+<div class="class-icon">📘</div>
+<h3>Class 11</h3>
+<p class="muted">Mathematics</p>
+</div>
 
-        <div class="class-card" onclick="selectClass(12)">
-            <div class="class-icon">📕</div>
-            <h3>Class 12</h3>
-            <p class="muted">Mathematics</p>
-        </div>
+<div class="class-card" onclick="selectClass(12)">
+<div class="class-icon">📕</div>
+<h3>Class 12</h3>
+<p class="muted">Mathematics</p>
+</div>
 
-    </div>
-
-
-    <h2 class="section-title">My Course</h2>
-
-    <div class="card">
-        <div class="course-row">
-            <div class="course-icon">📐</div>
-
-            <div>
-                <h3>Mathematics</h3>
-                <p class="muted">CBSE • PSEB</p>
-                <p class="muted">Learn chapter by chapter</p>
-            </div>
-        </div>
-
-        <button class="btn" onclick="selectClass(11)">
-            Start Learning
-        </button>
-    </div>
+</div>
 
 
-    <h2 class="section-title">Quick Access</h2>
+<h2 class="section-title">🔴 Live Classes</h2>
 
-    <div class="card">
-        <h3>📝 Latest Notes</h3>
-        <p class="muted">Notes uploaded by Karan</p>
-        <button class="btn-light" onclick="showPage('notes')">
-            Open Notes
-        </button>
-    </div>
+<div id="homeLive"></div>
 
-    <div class="card">
-        <h3>⭐ Important Questions</h3>
-        <p class="muted">Practice Mathematics</p>
-        <button class="btn-light" onclick="showPage('practice')">
-            Practice Now
-        </button>
-    </div>
+
+<h2 class="section-title">📝 Latest Notes</h2>
+
+<div id="homeNotes"></div>
+
+
+<h2 class="section-title">🔔 Notifications</h2>
+
+<div id="homeNotifications"></div>
+
+
+<h2 class="section-title">⭐ Practice</h2>
+
+<div class="card">
+<h3>Important Questions</h3>
+<p class="muted">
+Practice important Mathematics questions.
+</p>
+
+<button class="btn" onclick="showPage('practice')">
+Practice Now
+</button>
+</div>
 
 </section>
 
@@ -399,15 +402,15 @@ textarea{
 <!-- COURSES -->
 <section id="courses" class="page">
 
-    <button class="btn back" onclick="showPage('home')">
-        ← Back
-    </button>
+<button class="btn" onclick="showPage('home')">
+← Back
+</button>
 
-    <h2 id="courseTitle" class="section-title">
-        Mathematics
-    </h2>
+<h2 id="courseTitle" class="section-title">
+Mathematics
+</h2>
 
-    <div id="chapterList"></div>
+<div id="chapterList"></div>
 
 </section>
 
@@ -415,50 +418,43 @@ textarea{
 <!-- CHAPTER -->
 <section id="chapter" class="page">
 
-    <button class="btn back" onclick="backToCourses()">
-        ← Back to Chapters
-    </button>
+<button class="btn" onclick="backToCourses()">
+← Back to Chapters
+</button>
 
-    <div class="card">
-        <h2 id="chapterTitle"></h2>
-        <p id="chapterClass" class="muted"></p>
-    </div>
+<div class="card">
+<h2 id="chapterTitle"></h2>
+<p id="chapterClass" class="muted"></p>
+</div>
 
-    <div class="card lesson-card">
+<div class="card">
+<h3>📺 Lectures</h3>
+<p class="muted">
+Chapter lectures will appear here.
+</p>
+</div>
 
-        <h3>📚 Chapter Resources</h3>
+<div class="card">
+<h3>📝 Notes</h3>
+<p class="muted">
+Chapter notes uploaded by Karan.
+</p>
 
-        <div class="lesson-option">
-            <div>
-                <b>🎥 Lectures</b>
-                <p class="muted">Video lessons will be added here.</p>
-            </div>
-            <button class="btn-light" onclick="comingSoon()">
-                Open
-            </button>
-        </div>
+<button class="btn-light" onclick="showPage('notes')">
+Open Notes
+</button>
+</div>
 
-        <div class="lesson-option">
-            <div>
-                <b>📝 Notes</b>
-                <p class="muted">Chapter notes by Karan.</p>
-            </div>
-            <button class="btn-light" onclick="showPage('notes')">
-                Open
-            </button>
-        </div>
+<div class="card">
+<h3>❓ Practice</h3>
+<p class="muted">
+Important questions for practice.
+</p>
 
-        <div class="lesson-option">
-            <div>
-                <b>❓ Practice</b>
-                <p class="muted">Important questions.</p>
-            </div>
-            <button class="btn-light" onclick="showPage('practice')">
-                Open
-            </button>
-        </div>
-
-    </div>
+<button class="btn-light" onclick="showPage('practice')">
+Practice
+</button>
+</div>
 
 </section>
 
@@ -466,39 +462,29 @@ textarea{
 <!-- NOTES -->
 <section id="notes" class="page">
 
-    <h2 class="section-title">📝 Notes</h2>
+<h2 class="section-title">📝 Notes</h2>
 
-    <div id="notesContainer">
+<div id="notesContainer"></div>
 
-        <div class="card note">
-            <h3>Sets — Introduction</h3>
-            <p class="muted">Class 11 • Uploaded by Karan</p>
-            <br>
-            <p>
-                A set is a well-defined collection of distinct objects.
-            </p>
-        </div>
+</section>
 
-        <div class="card note">
-            <h3>Quadratic Equations</h3>
-            <p class="muted">Class 11 • Uploaded by Karan</p>
-            <br>
-            <p>
-                A quadratic equation is generally written as
-                ax² + bx + c = 0, where a ≠ 0.
-            </p>
-        </div>
 
-        <div class="card note">
-            <h3>Important Identity</h3>
-            <p class="muted">Class 11 • Uploaded by Karan</p>
-            <br>
-            <p>
-                sin²θ + cos²θ = 1
-            </p>
-        </div>
+<!-- LIVE CLASSES -->
+<section id="live" class="page">
 
-    </div>
+<h2 class="section-title">🔴 Live Classes</h2>
+
+<div id="liveContainer"></div>
+
+</section>
+
+
+<!-- NOTIFICATIONS -->
+<section id="notifications" class="page">
+
+<h2 class="section-title">🔔 Notifications</h2>
+
+<div id="notificationContainer"></div>
 
 </section>
 
@@ -506,129 +492,311 @@ textarea{
 <!-- PRACTICE -->
 <section id="practice" class="page">
 
-    <h2 class="section-title">❓ Important Questions</h2>
+<h2 class="section-title">
+❓ Important Questions
+</h2>
 
-    <div class="card question">
+<div class="card question">
 
-        <b>
-            Q1. If A = {1,2,3} and B = {3,4,5},
-            find A ∩ B.
-        </b>
+<b>
+Q1. If A = {1,2,3} and B = {3,4,5},
+find A ∩ B.
+</b>
 
-        <br>
+<br>
 
-        <button class="btn" onclick="toggleAnswer('answer1')">
-            Show Answer
-        </button>
+<button class="btn" onclick="toggleAnswer('a1')">
+Show Answer
+</button>
 
-        <div id="answer1" class="answer">
-            A ∩ B = {3}
-        </div>
+<div id="a1" class="answer">
+A ∩ B = {3}
+</div>
 
-    </div>
-
-
-    <div class="card question">
-
-        <b>
-            Q2. Find the discriminant of
-            x² − 5x + 6 = 0.
-        </b>
-
-        <br>
-
-        <button class="btn" onclick="toggleAnswer('answer2')">
-            Show Answer
-        </button>
-
-        <div id="answer2" class="answer">
-            D = b² − 4ac<br>
-            D = 25 − 24<br>
-            <b>D = 1</b>
-        </div>
-
-    </div>
+</div>
 
 
-    <div class="card question">
+<div class="card question">
 
-        <b>
-            Q3. What is sin²θ + cos²θ?
-        </b>
+<b>
+Q2. Find the discriminant of
+x² − 5x + 6 = 0.
+</b>
 
-        <br>
+<br>
 
-        <button class="btn" onclick="toggleAnswer('answer3')">
-            Show Answer
-        </button>
+<button class="btn" onclick="toggleAnswer('a2')">
+Show Answer
+</button>
 
-        <div id="answer3" class="answer">
-            <b>1</b>
-        </div>
+<div id="a2" class="answer">
+D = b² − 4ac<br>
+D = 25 − 24<br>
+<b>D = 1</b>
+</div>
 
-    </div>
+</div>
+
+
+<div class="card question">
+
+<b>
+Q3. What is sin²θ + cos²θ?
+</b>
+
+<br>
+
+<button class="btn" onclick="toggleAnswer('a3')">
+Show Answer
+</button>
+
+<div id="a3" class="answer">
+<b>1</b>
+</div>
+
+</div>
 
 </section>
 
 
-<!-- PROFILE -->
+<!-- PROFILE / TEACHER -->
 <section id="profile" class="page">
 
-    <div class="card profile">
+<div class="card profile">
 
-        <div class="avatar">👤</div>
+<div class="avatar">👤</div>
 
-        <br>
+<br>
 
-        <h2>Student Profile</h2>
-        <p class="muted">MathNova Learner</p>
+<h2>Student Profile</h2>
+<p class="muted">
+MathNova Learner
+</p>
 
-    </div>
-
-
-    <div class="card">
-
-        <h3>👨‍🏫 Teacher Panel</h3>
-
-        <p class="muted">
-            Teacher login
-        </p>
-
-        <input
-            id="teacherPassword"
-            type="password"
-            placeholder="Enter teacher password"
-        >
-
-        <button class="btn" onclick="teacherLogin()">
-            Login
-        </button>
-
-        <p id="loginMessage" class="message"></p>
+</div>
 
 
-        <div id="teacherArea">
+<div class="card">
 
-            <h3>Add Note</h3>
+<h3>👨‍🏫 Teacher Panel</h3>
 
-            <input
-                id="noteTitle"
-                type="text"
-                placeholder="Note title"
-            >
+<p class="muted">
+Login as Karan to manage MathNova.
+</p>
 
-            <textarea
-                id="noteText"
-                placeholder="Write the note here..."
-            ></textarea>
+<input
+id="teacherPassword"
+type="password"
+placeholder="Enter teacher password"
+>
 
-            <button class="btn" onclick="uploadNote()">
-                Upload Note
-            </button>
+<button class="btn" onclick="teacherLogin()">
+Login
+</button>
 
-        </div>
+<p id="loginMessage" class="message"></p>
 
-    </div>
+
+<div id="teacherDashboard" style="display:none;">
+
+<h3 style="margin-top:20px;">
+Teacher Dashboard
+</h3>
+
+<div class="teacher-menu">
+
+<div class="teacher-option"
+onclick="openTeacherForm('lecture')">
+<span class="emoji">📺</span>
+<b>Add Lecture</b>
+<p class="muted">Add a lecture</p>
+</div>
+
+<div class="teacher-option"
+onclick="openTeacherForm('live')">
+<span class="emoji">🔴</span>
+<b>Live Class</b>
+<p class="muted">Create live class</p>
+</div>
+
+<div class="teacher-option"
+onclick="openTeacherForm('note')">
+<span class="emoji">📝</span>
+<b>Upload Notes</b>
+<p class="muted">Add study notes</p>
+</div>
+
+<div class="teacher-option"
+onclick="openTeacherForm('question')">
+<span class="emoji">❓</span>
+<b>Add Question</b>
+<p class="muted">Add practice</p>
+</div>
+
+<div class="teacher-option"
+onclick="openTeacherForm('notification')">
+<span class="emoji">🔔</span>
+<b>Notification</b>
+<p class="muted">Send update</p>
+</div>
+
+<div class="teacher-option"
+onclick="openTeacherForm('chapter')">
+<span class="emoji">📚</span>
+<b>Chapters</b>
+<p class="muted">Manage chapters</p>
+</div>
+
+</div>
+
+
+<!-- LECTURE FORM -->
+<div id="lectureForm" class="teacher-form">
+
+<h3>📺 Add Lecture</h3>
+
+<input id="lectureTitle"
+placeholder="Lecture title">
+
+<select id="lectureClass">
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
+</select>
+
+<input id="lectureChapter"
+placeholder="Chapter name">
+
+<input id="lectureLink"
+placeholder="Video / lecture link">
+
+<button class="btn" onclick="addLecture()">
+Publish Lecture
+</button>
+
+</div>
+
+
+<!-- LIVE FORM -->
+<div id="liveForm" class="teacher-form">
+
+<h3>🔴 Create Live Class</h3>
+
+<input id="liveTitle"
+placeholder="Live class title">
+
+<select id="liveClass">
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
+</select>
+
+<input id="liveChapter"
+placeholder="Chapter">
+
+<input id="liveDate"
+type="date">
+
+<input id="liveTime"
+type="time">
+
+<input id="liveLink"
+placeholder="Live class link">
+
+<button class="btn" onclick="addLiveClass()">
+Publish Live Class
+</button>
+
+</div>
+
+
+<!-- NOTE FORM -->
+<div id="noteForm" class="teacher-form">
+
+<h3>📝 Upload Notes</h3>
+
+<input id="noteTitle"
+placeholder="Note title">
+
+<select id="noteClass">
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
+</select>
+
+<input id="noteChapter"
+placeholder="Chapter">
+
+<textarea id="noteText"
+placeholder="Write your notes here..."></textarea>
+
+<button class="btn" onclick="addNote()">
+Publish Notes
+</button>
+
+</div>
+
+
+<!-- QUESTION FORM -->
+<div id="questionForm" class="teacher-form">
+
+<h3>❓ Add Important Question</h3>
+
+<input id="questionText"
+placeholder="Question">
+
+<input id="questionAnswer"
+placeholder="Answer">
+
+<select id="questionClass">
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
+</select>
+
+<button class="btn" onclick="addQuestion()">
+Publish Question
+</button>
+
+</div>
+
+
+<!-- NOTIFICATION FORM -->
+<div id="notificationForm" class="teacher-form">
+
+<h3>🔔 Send Notification</h3>
+
+<input id="notificationTitle"
+placeholder="Notification title">
+
+<textarea id="notificationText"
+placeholder="Notification message"></textarea>
+
+<button class="btn" onclick="addNotification()">
+Send Notification
+</button>
+
+</div>
+
+
+<!-- CHAPTER FORM -->
+<div id="chapterForm" class="teacher-form">
+
+<h3>📚 Manage Chapters</h3>
+
+<select id="manageClass">
+<option value="11">Class 11</option>
+<option value="12">Class 12</option>
+</select>
+
+<input id="newChapter"
+placeholder="New chapter name">
+
+<button class="btn" onclick="addChapter()">
+Add Chapter
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -636,409 +804,1123 @@ textarea{
 
 
 <!-- BOTTOM NAVIGATION -->
+
 <nav class="bottom-nav">
 
-    <button class="nav-item active"
-            onclick="navigate(this,'home')">
-        <span>🏠</span>
-        Home
-    </button>
+<button class="nav-item active"
+onclick="navigate(this,'home')">
+<span>🏠</span>
+Home
+</button>
 
-    <button class="nav-item"
-            onclick="navigate(this,'courses')">
-        <span>📚</span>
-        Courses
-    </button>
+<button class="nav-item"
+onclick="navigate(this,'courses')">
+<span>📚</span>
+Courses
+</button>
 
-    <button class="nav-item"
-            onclick="navigate(this,'notes')">
-        <span>📝</span>
-        Notes
-    </button>
+<button class="nav-item"
+onclick="navigate(this,'notes')">
+<span>📝</span>
+Notes
+</button>
 
-    <button class="nav-item"
-            onclick="navigate(this,'practice')">
-        <span>❓</span>
-        Practice
-    </button>
+<button class="nav-item"
+onclick="navigate(this,'practice')">
+<span>❓</span>
+Practice
+</button>
 
-    <button class="nav-item"
-            onclick="navigate(this,'profile')">
-        <span>👤</span>
-        Profile
-    </button>
+<button class="nav-item"
+onclick="navigate(this,'profile')">
+<span>👤</span>
+Profile
+</button>
 
 </nav>
 
 
 <script>
 
-/* =========================
-   APP DATA
-========================= */
+/* ==========================
+   DATA
+========================== */
 
-const chapters11 = [
-    "Sets",
-    "Relations and Functions",
-    "Trigonometric Functions",
-    "Complex Numbers and Quadratic Equations",
-    "Linear Inequalities",
-    "Permutations and Combinations",
-    "Binomial Theorem",
-    "Sequences and Series",
-    "Straight Lines",
-    "Conic Sections",
-    "Introduction to Three Dimensional Geometry",
-    "Limits and Derivatives",
-    "Statistics",
-    "Probability"
+let chapters11=[
+"Sets",
+"Relations and Functions",
+"Trigonometric Functions",
+"Complex Numbers and Quadratic Equations",
+"Linear Inequalities",
+"Permutations and Combinations",
+"Binomial Theorem",
+"Sequences and Series",
+"Straight Lines",
+"Conic Sections",
+"Introduction to Three Dimensional Geometry",
+"Limits and Derivatives",
+"Statistics",
+"Probability"
 ];
 
-const chapters12 = [
-    "Relations and Functions",
-    "Inverse Trigonometric Functions",
-    "Matrices",
-    "Determinants",
-    "Continuity and Differentiability",
-    "Applications of Derivatives",
-    "Integrals",
-    "Application of Integrals",
-    "Differential Equations",
-    "Vector Algebra",
-    "Three Dimensional Geometry",
-    "Linear Programming",
-    "Probability"
+let chapters12=[
+"Relations and Functions",
+"Inverse Trigonometric Functions",
+"Matrices",
+"Determinants",
+"Continuity and Differentiability",
+"Applications of Derivatives",
+"Integrals",
+"Application of Integrals",
+"Differential Equations",
+"Vector Algebra",
+"Three Dimensional Geometry",
+"Linear Programming",
+"Probability"
 ];
 
-let selectedClass = 11;
+let selectedClass=11;
 
 
-/* =========================
-   PAGE NAVIGATION
-========================= */
+/* Teacher-created content */
 
-function showPage(pageId){
+let notes=[];
 
-    const pages = document.querySelectorAll(".page");
+let lectures=[];
 
-    pages.forEach(function(page){
-        page.classList.remove("active");
-    });
+let liveClasses=[];
 
-    const target = document.getElementById(pageId);
+let notifications=[];
 
-    if(target){
-        target.classList.add("active");
-    }
+let questions=[];
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+
+/* ==========================
+   PAGE SYSTEM
+========================== */
+
+function showPage(id){
+
+document.querySelectorAll(".page")
+.forEach(function(page){
+
+page.classList.remove("active");
+
+});
+
+let page=document.getElementById(id);
+
+if(page){
+page.classList.add("active");
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
 
 
-/* =========================
-   BOTTOM NAVIGATION
-========================= */
+/* ==========================
+   NAVIGATION
+========================== */
 
-function navigate(button,pageId){
+function navigate(button,id){
 
-    const navButtons =
-        document.querySelectorAll(".nav-item");
+document.querySelectorAll(".nav-item")
+.forEach(function(btn){
 
-    navButtons.forEach(function(item){
-        item.classList.remove("active");
-    });
+btn.classList.remove("active");
 
-    button.classList.add("active");
+});
 
-    showPage(pageId);
+button.classList.add("active");
 
-    if(pageId === "courses"){
-        loadCourses(selectedClass);
-    }
+showPage(id);
+
+if(id==="courses"){
+loadCourses(selectedClass);
+}
+
+if(id==="notes"){
+renderNotes();
+}
+
 }
 
 
-/* =========================
-   CLASS SELECTION
-========================= */
+/* ==========================
+   CLASS
+========================== */
 
 function selectClass(classNumber){
 
-    selectedClass = classNumber;
+selectedClass=classNumber;
 
-    loadCourses(classNumber);
+loadCourses(classNumber);
 
-    showPage("courses");
+showPage("courses");
 
-    setActiveNavigation("courses");
+setActiveNav(1);
+
 }
 
 
-/* =========================
-   LOAD CHAPTERS
-========================= */
+/* ==========================
+   COURSES
+========================== */
 
 function loadCourses(classNumber){
 
-    const chapters =
-        classNumber === 11
-        ? chapters11
-        : chapters12;
+let chapters=
+classNumber===11
+?chapters11
+:chapters12;
 
-    document.getElementById("courseTitle").textContent =
-        "Class " + classNumber + " Mathematics";
+document.getElementById("courseTitle")
+.textContent=
+"Class "+classNumber+" Mathematics";
 
-    const container =
-        document.getElementById("chapterList");
+let container=
+document.getElementById("chapterList");
 
-    container.innerHTML = "";
+container.innerHTML="";
 
-    chapters.forEach(function(chapter,index){
+chapters.forEach(function(chapter,index){
 
-        const card = document.createElement("div");
+let card=document.createElement("div");
 
-        card.className = "card";
+card.className="card";
 
-        card.innerHTML = `
-            <div class="chapter-row">
+card.innerHTML=`
 
-                <div class="chapter-number">
-                    ${index + 1}
-                </div>
+<div class="chapter-row">
 
-                <div class="chapter-info">
-                    <h3>${escapeHTML(chapter)}</h3>
-                    <p class="muted">
-                        Class ${classNumber} • Mathematics
-                    </p>
-                </div>
+<div class="chapter-number">
+${index+1}
+</div>
 
-                <button
-                    class="btn-light"
-                    onclick="openChapter(${index})">
-                    Open
-                </button>
+<div class="chapter-info">
 
-            </div>
-        `;
+<h3>${safe(chapter)}</h3>
 
-        container.appendChild(card);
-    });
+<p class="muted">
+Class ${classNumber}
+</p>
+
+</div>
+
+<button class="btn-light"
+onclick="openChapter(${index})">
+Open
+</button>
+
+</div>
+
+`;
+
+container.appendChild(card);
+
+});
+
 }
 
 
-/* =========================
-   OPEN CHAPTER
-========================= */
+/* ==========================
+   CHAPTER
+========================== */
 
 function openChapter(index){
 
-    const chapters =
-        selectedClass === 11
-        ? chapters11
-        : chapters12;
+let chapters=
+selectedClass===11
+?chapters11
+:chapters12;
 
-    const chapterName = chapters[index];
+let name=chapters[index];
 
-    document.getElementById("chapterTitle").textContent =
-        "📖 " + chapterName;
+document.getElementById("chapterTitle")
+.textContent="📖 "+name;
 
-    document.getElementById("chapterClass").textContent =
-        "Class " + selectedClass + " • Mathematics • Uploaded by Karan";
+document.getElementById("chapterClass")
+.textContent=
+"Class "+selectedClass+
+" • Mathematics • MathNova with Karan";
 
-    showPage("chapter");
+showPage("chapter");
+
 }
 
 
-/* =========================
-   BACK TO COURSES
-========================= */
+/* ==========================
+   BACK
+========================== */
 
 function backToCourses(){
 
-    loadCourses(selectedClass);
+loadCourses(selectedClass);
 
-    showPage("courses");
+showPage("courses");
+
 }
 
 
-/* =========================
-   ACTIVE NAVIGATION
-========================= */
+/* ==========================
+   NAV ACTIVE
+========================== */
 
-function setActiveNavigation(pageId){
+function setActiveNav(index){
 
-    const navButtons =
-        document.querySelectorAll(".nav-item");
+let buttons=
+document.querySelectorAll(".nav-item");
 
-    navButtons.forEach(function(button){
-        button.classList.remove("active");
-    });
+buttons.forEach(function(btn){
 
-    const mapping = {
-        home:0,
-        courses:1,
-        notes:2,
-        practice:3,
-        profile:4
-    };
+btn.classList.remove("active");
 
-    if(mapping[pageId] !== undefined){
-        navButtons[mapping[pageId]].classList.add("active");
-    }
+});
+
+if(buttons[index]){
+buttons[index].classList.add("active");
+}
+
 }
 
 
-/* =========================
-   PRACTICE ANSWERS
-========================= */
+/* ==========================
+   NOTES
+========================== */
 
-function toggleAnswer(id){
+function renderNotes(){
 
-    const answer =
-        document.getElementById(id);
+let container=
+document.getElementById("notesContainer");
 
-    if(!answer){
-        return;
-    }
+container.innerHTML="";
 
-    if(answer.style.display === "block"){
-        answer.style.display = "none";
-    }else{
-        answer.style.display = "block";
-    }
+
+if(notes.length===0){
+
+container.innerHTML=`
+
+<div class="card empty">
+
+📝 No new notes uploaded yet.
+
+<br><br>
+
+Notes uploaded by Karan
+will appear here.
+
+</div>
+
+`;
+
+return;
+
 }
 
 
-/* =========================
+notes.forEach(function(note){
+
+let card=document.createElement("div");
+
+card.className="card note";
+
+card.innerHTML=`
+
+<h3>${safe(note.title)}</h3>
+
+<p class="muted">
+Class ${note.classNumber}
+• ${safe(note.chapter)}
+• Uploaded by Karan
+</p>
+
+<br>
+
+<p>${safe(note.text)}</p>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* ==========================
+   ADD NOTE
+========================== */
+
+function addNote(){
+
+let title=
+document.getElementById("noteTitle")
+.value.trim();
+
+let classNumber=
+document.getElementById("noteClass")
+.value;
+
+let chapter=
+document.getElementById("noteChapter")
+.value.trim();
+
+let text=
+document.getElementById("noteText")
+.value.trim();
+
+
+if(!title || !chapter || !text){
+
+alert("Please complete all note fields.");
+
+return;
+
+}
+
+
+notes.unshift({
+
+title:title,
+
+classNumber:classNumber,
+
+chapter:chapter,
+
+text:text
+
+});
+
+
+document.getElementById("noteTitle").value="";
+document.getElementById("noteChapter").value="";
+document.getElementById("noteText").value="";
+
+renderNotes();
+
+alert("✅ Notes published by Karan.");
+
+}
+
+
+/* ==========================
+   LECTURES
+========================== */
+
+function addLecture(){
+
+let title=
+document.getElementById("lectureTitle")
+.value.trim();
+
+let classNumber=
+document.getElementById("lectureClass")
+.value;
+
+let chapter=
+document.getElementById("lectureChapter")
+.value.trim();
+
+let link=
+document.getElementById("lectureLink")
+.value.trim();
+
+
+if(!title || !chapter){
+
+alert("Please enter lecture title and chapter.");
+
+return;
+
+}
+
+
+lectures.unshift({
+
+title:title,
+
+classNumber:classNumber,
+
+chapter:chapter,
+
+link:link
+
+});
+
+
+document.getElementById("lectureTitle").value="";
+document.getElementById("lectureChapter").value="";
+document.getElementById("lectureLink").value="";
+
+renderHome();
+
+alert("✅ Lecture published.");
+
+}
+
+
+/* ==========================
+   LIVE CLASS
+========================== */
+
+function addLiveClass(){
+
+let title=
+document.getElementById("liveTitle").value.trim();
+
+let classNumber=
+document.getElementById("liveClass").value;
+
+let chapter=
+document.getElementById("liveChapter").value.trim();
+
+let date=
+document.getElementById("liveDate").value;
+
+let time=
+document.getElementById("liveTime").value;
+
+let link=
+document.getElementById("liveLink").value.trim();
+
+
+if(!title || !chapter || !date || !time){
+
+alert("Please complete the live class details.");
+
+return;
+
+}
+
+
+liveClasses.unshift({
+
+title:title,
+
+classNumber:classNumber,
+
+chapter:chapter,
+
+date:date,
+
+time:time,
+
+link:link
+
+});
+
+
+document.getElementById("liveTitle").value="";
+document.getElementById("liveChapter").value="";
+document.getElementById("liveDate").value="";
+document.getElementById("liveTime").value="";
+document.getElementById("liveLink").value="";
+
+
+renderLive();
+
+renderHome();
+
+alert("🔴 Live class published.");
+
+}
+
+
+/* ==========================
+   NOTIFICATIONS
+========================== */
+
+function addNotification(){
+
+let title=
+document.getElementById("notificationTitle")
+.value.trim();
+
+let text=
+document.getElementById("notificationText")
+.value.trim();
+
+
+if(!title || !text){
+
+alert("Please enter notification title and message.");
+
+return;
+
+}
+
+
+notifications.unshift({
+
+title:title,
+
+text:text
+
+});
+
+
+document.getElementById("notificationTitle").value="";
+document.getElementById("notificationText").value="";
+
+renderNotifications();
+
+renderHome();
+
+alert("🔔 Notification sent.");
+
+}
+
+
+/* ==========================
+   QUESTIONS
+========================== */
+
+function addQuestion(){
+
+let question=
+document.getElementById("questionText")
+.value.trim();
+
+let answer=
+document.getElementById("questionAnswer")
+.value.trim();
+
+let classNumber=
+document.getElementById("questionClass")
+.value;
+
+
+if(!question || !answer){
+
+alert("Please enter question and answer.");
+
+return;
+
+}
+
+
+questions.unshift({
+
+question:question,
+
+answer:answer,
+
+classNumber:classNumber
+
+});
+
+
+document.getElementById("questionText").value="";
+document.getElementById("questionAnswer").value="";
+
+
+renderQuestions();
+
+alert("✅ Question published.");
+
+}
+
+
+/* ==========================
+   CHAPTER MANAGEMENT
+========================== */
+
+function addChapter(){
+
+let classNumber=
+document.getElementById("manageClass")
+.value;
+
+let chapter=
+document.getElementById("newChapter")
+.value.trim();
+
+
+if(!chapter){
+
+alert("Enter a chapter name.");
+
+return;
+
+}
+
+
+if(classNumber==="11"){
+
+chapters11.push(chapter);
+
+}else{
+
+chapters12.push(chapter);
+
+}
+
+
+document.getElementById("newChapter").value="";
+
+alert(
+"✅ Chapter added to Class "+classNumber+"."
+);
+
+if(selectedClass===Number(classNumber)){
+
+loadCourses(selectedClass);
+
+}
+
+}
+
+
+/* ==========================
+   RENDER LIVE
+========================== */
+
+function renderLive(){
+
+let container=
+document.getElementById("liveContainer");
+
+container.innerHTML="";
+
+
+if(liveClasses.length===0){
+
+container.innerHTML=`
+
+<div class="card empty">
+🔴 No live classes scheduled.
+</div>
+
+`;
+
+return;
+
+}
+
+
+liveClasses.forEach(function(item){
+
+let card=document.createElement("div");
+
+card.className="card live";
+
+card.innerHTML=`
+
+<span class="live-badge">
+LIVE CLASS
+</span>
+
+<h3>${safe(item.title)}</h3>
+
+<p class="muted">
+Class ${item.classNumber}
+• ${safe(item.chapter)}
+</p>
+
+<p class="muted">
+📅 ${safe(item.date)}
+&nbsp;&nbsp;
+⏰ ${safe(item.time)}
+</p>
+
+${item.link
+?`<button class="btn"
+onclick="openLink('${safeURL(item.link)}')">
+Join Class
+</button>`
+:""}
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* ==========================
+   RENDER NOTIFICATIONS
+========================== */
+
+function renderNotifications(){
+
+let container=
+document.getElementById("notificationContainer");
+
+container.innerHTML="";
+
+
+if(notifications.length===0){
+
+container.innerHTML=`
+
+<div class="card empty">
+🔔 No notifications yet.
+</div>
+
+`;
+
+return;
+
+}
+
+
+notifications.forEach(function(item){
+
+let card=document.createElement("div");
+
+card.className="card notification";
+
+card.innerHTML=`
+
+<h3>🔔 ${safe(item.title)}</h3>
+
+<br>
+
+<p>${safe(item.text)}</p>
+
+<p class="muted">
+From MathNova with Karan
+</p>
+
+`;
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* ==========================
+   RENDER QUESTIONS
+========================== */
+
+function renderQuestions(){
+
+if(questions.length===0){
+
+return;
+
+}
+
+let page=
+document.getElementById("practice");
+
+questions.forEach(function(item,index){
+
+let card=document.createElement("div");
+
+card.className="card question";
+
+card.innerHTML=`
+
+<b>${safe(item.question)}</b>
+
+<br>
+
+<button class="btn"
+onclick="toggleAnswer('teacherAnswer${index}')">
+Show Answer
+</button>
+
+<div id="teacherAnswer${index}"
+class="answer">
+
+${safe(item.answer)}
+
+</div>
+
+`;
+
+page.appendChild(card);
+
+});
+
+}
+
+
+/* ==========================
+   HOME CONTENT
+========================== */
+
+function renderHome(){
+
+let liveBox=
+document.getElementById("homeLive");
+
+let notesBox=
+document.getElementById("homeNotes");
+
+let notificationBox=
+document.getElementById("homeNotifications");
+
+
+/* LIVE */
+
+if(liveClasses.length===0){
+
+liveBox.innerHTML=`
+<div class="card empty">
+No live class scheduled.
+</div>
+`;
+
+}else{
+
+let item=liveClasses[0];
+
+liveBox.innerHTML=`
+
+<div class="card live">
+
+<span class="live-badge">
+LIVE CLASS
+</span>
+
+<h3>${safe(item.title)}</h3>
+
+<p class="muted">
+Class ${item.classNumber}
+• ${safe(item.chapter)}
+</p>
+
+<p class="muted">
+📅 ${safe(item.date)}
+• ⏰ ${safe(item.time)}
+</p>
+
+</div>
+`;
+
+}
+
+
+/* NOTES */
+
+if(notes.length===0){
+
+notesBox.innerHTML=`
+<div class="card empty">
+No new notes.
+</div>
+`;
+
+}else{
+
+let item=notes[0];
+
+notesBox.innerHTML=`
+
+<div class="card note">
+
+<h3>${safe(item.title)}</h3>
+
+<p class="muted">
+Class ${item.classNumber}
+• Uploaded by Karan
+</p>
+
+</div>
+`;
+
+}
+
+
+/* NOTIFICATIONS */
+
+if(notifications.length===0){
+
+notificationBox.innerHTML=`
+<div class="card empty">
+No new notifications.
+</div>
+`;
+
+}else{
+
+let item=notifications[0];
+
+notificationBox.innerHTML=`
+
+<div class="card notification">
+
+<h3>🔔 ${safe(item.title)}</h3>
+
+<p>${safe(item.text)}</p>
+
+</div>
+`;
+
+}
+
+}
+
+
+/* ==========================
    TEACHER LOGIN
-========================= */
+========================== */
 
 function teacherLogin(){
 
-    const password =
-        document.getElementById("teacherPassword").value;
+let password=
+document.getElementById("teacherPassword")
+.value;
 
-    const message =
-        document.getElementById("loginMessage");
+let message=
+document.getElementById("loginMessage");
 
-    if(password === "Coco123"){
 
-        document.getElementById("teacherArea")
-            .style.display = "block";
+if(password==="Coco123"){
 
-        message.textContent =
-            "✅ Teacher login successful.";
+document.getElementById("teacherDashboard")
+.style.display="block";
 
-        message.style.color = "green";
+message.textContent=
+"✅ Teacher login successful.";
 
-    }else{
+message.style.color="green";
 
-        message.textContent =
-            "❌ Incorrect password.";
+}else{
 
-        message.style.color = "red";
+message.textContent=
+"❌ Incorrect password.";
 
-    }
+message.style.color="red";
+
+}
+
 }
 
 
-/* =========================
-   UPLOAD NOTE
-========================= */
+/* ==========================
+   TEACHER FORMS
+========================== */
 
-function uploadNote(){
+function openTeacherForm(type){
 
-    const title =
-        document.getElementById("noteTitle").value.trim();
+document.querySelectorAll(".teacher-form")
+.forEach(function(form){
 
-    const text =
-        document.getElementById("noteText").value.trim();
+form.style.display="none";
 
-    if(title === "" || text === ""){
+});
 
-        alert("Please enter both the note title and note.");
 
-        return;
-    }
+let form=
+document.getElementById(type+"Form");
 
-    const note =
-        document.createElement("div");
+if(form){
 
-    note.className = "card note";
+form.style.display="block";
 
-    note.innerHTML = `
-        <h3>${escapeHTML(title)}</h3>
-        <p class="muted">
-            Class ${selectedClass} • Uploaded by Karan
-        </p>
-        <br>
-        <p>${escapeHTML(text)}</p>
-    `;
+form.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
-    document
-        .getElementById("notesContainer")
-        .prepend(note);
+}
 
-    document.getElementById("noteTitle").value = "";
-    document.getElementById("noteText").value = "";
-
-    alert("✅ Note added to MathNova Notes.");
-
-    showPage("notes");
-
-    setActiveNavigation("notes");
 }
 
 
-/* =========================
-   NOTIFICATION
-========================= */
+/* ==========================
+   ANSWERS
+========================== */
 
-function showNotification(){
+function toggleAnswer(id){
 
-    alert(
-        "🔔 MathNova\n\n" +
-        "No new notifications right now."
-    );
+let answer=
+document.getElementById(id);
+
+if(!answer){
+
+return;
+
+}
+
+answer.style.display=
+answer.style.display==="block"
+?"none"
+:"block";
+
 }
 
 
-/* =========================
-   COMING SOON
-========================= */
+/* ==========================
+   NOTIFICATION PAGE
+========================== */
 
-function comingSoon(){
+function showNotifications(){
 
-    alert(
-        "🎥 Video lectures will be added here."
-    );
+renderNotifications();
+
+showPage("notifications");
+
 }
 
 
-/* =========================
-   BASIC HTML SAFETY
-========================= */
+/* ==========================
+   LINK
+========================== */
 
-function escapeHTML(text){
+function openLink(url){
 
-    return text
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+if(!url){
+
+alert("No live class link has been added yet.");
+
+return;
+
+}
+
+window.open(url,"_blank");
+
 }
 
 
-/* =========================
-   INITIALIZE APP
-========================= */
+/* ==========================
+   TEXT SAFETY
+========================== */
+
+function safe(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function safeURL(url){
+
+return String(url)
+.replace(/'/g,"%27");
+
+}
+
+
+/* ==========================
+   START APP
+========================== */
 
 loadCourses(11);
+
+renderNotes();
+
+renderLive();
+
+renderNotifications();
+
+renderHome();
 
 </script>
 
