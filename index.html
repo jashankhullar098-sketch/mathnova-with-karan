@@ -1670,84 +1670,138 @@ await refs.questions.push(data);
 alert("✅ Question published!");
 
 }
-
-
 /* =========================
    ADD NOTIFICATION
 ========================= */
 
 async function addNotification(){
 
-if(!teacherLoggedIn){
+    if(
+        !document.getElementById("teacherDashboard") ||
+        document.getElementById("teacherDashboard").style.display === "none"
+    ){
+        alert("Teacher login required.");
+        return;
+    }
 
-alert("Teacher login required.");
+    const title = value("notificationTitle");
+    const text = value("notificationText");
+    const file = document.getElementById("notificationFile").files[0];
+    const status = document.getElementById("notificationStatus");
 
-return;
+    if(!title || !text){
+        alert("Please enter notification title and message.");
+        return;
+    }
+
+    try{
+
+        status.textContent = "Publishing notification...";
+
+        /* FIRST: SAVE TEXT TO DATABASE */
+
+        const newNotification =
+            refs.notifications.push();
+
+        await newNotification.set({
+
+            title: title,
+
+            text: text,
+
+            imageUrl: "",
+
+            createdAt: Date.now()
+
+        });
+
+
+        /* NOTIFICATION IS NOW PUBLISHED */
+
+        status.textContent =
+            "✅ Notification published!";
+
+
+        document.getElementById("notificationTitle").value = "";
+
+        document.getElementById("notificationText").value = "";
+
+        document.getElementById("notificationFile").value = "";
+
+
+        alert(
+            "🔔 Notification published successfully!"
+        );
+
+
+        /* IMAGE UPLOAD IS OPTIONAL */
+
+        if(file){
+
+            if(!file.type.startsWith("image/")){
+
+                status.textContent =
+                    "⚠️ Notification published. File was not an image.";
+
+                return;
+
+            }
+
+
+            status.textContent =
+                "Notification published. Uploading picture...";
+
+
+            const fileName =
+                Date.now() + "_" + file.name;
+
+
+            const storageRef =
+                storage.ref(
+                    "notifications/" + fileName
+                );
+
+
+            const snapshot =
+                await storageRef.put(file);
+
+
+            const imageUrl =
+                await snapshot.ref.getDownloadURL();
+
+
+            /* ADD IMAGE TO EXISTING NOTIFICATION */
+
+            await newNotification.update({
+
+                imageUrl: imageUrl
+
+            });
+
+
+            status.textContent =
+                "✅ Notification + picture uploaded!";
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        status.textContent =
+            "❌ Error: " + error.message;
+
+        alert(
+            "❌ Notification error: " +
+            error.message
+        );
+
+    }
 
 }
 
-try{
 
-const file=
-document.getElementById("notificationFile")
-.files[0];
-
-const data={
-
-title:value("notificationTitle"),
-
-text:value("notificationText"),
-
-createdAt:Date.now()
-
-};
-
-if(
-!data.title||
-!data.text
-){
-
-alert(
-"Enter notification title and message."
-);
-
-return;
-
-}
-
-if(file){
-
-if(!file.type.startsWith("image/")){
-
-alert("Please select an image.");
-
-return;
-
-}
-
-data.imageUrl=
-await uploadFile(
-file,
-"notifications",
-"notificationStatus"
-);
-
-}
-
-await refs.notifications.push(data);
-
-alert("🔔 Notification sent!");
-
-}catch(error){
-
-alert(
-"❌ Notification failed: "+
-error.message
-);
-
-}
-
-}
 
 
 /* =========================
@@ -2391,62 +2445,75 @@ Open Weekly Test
 
 function renderNotifications(){
 
-const container=
-document.getElementById("notificationContainer");
+    const container =
+        document.getElementById("notificationContainer");
 
-if(!container)
-return;
+    if(!container) return;
 
-container.innerHTML="";
+    container.innerHTML = "";
 
-if(notifications.length===0){
+    if(notifications.length === 0){
 
-container.innerHTML=`
+        container.innerHTML = `
+            <div class="card empty">
+                🔔 No notifications yet.
+            </div>
+        `;
 
-<div class="card empty">
-🔔 No notifications yet.
-</div>
+        return;
+    }
 
-`;
+    notifications.forEach(function(item){
 
-return;
+        const teacherLoggedIn =
+            document.getElementById("teacherDashboard") &&
+            document.getElementById("teacherDashboard").style.display !== "none";
+
+        container.innerHTML += `
+
+            <div class="card notification">
+
+                ${
+                    item.imageUrl
+                    ?
+                    `<img src="${safe(item.imageUrl)}">`
+                    :
+                    ""
+                }
+
+                <h3>
+                    🔔 ${safe(item.title)}
+                </h3>
+
+                <p style="margin-top:10px">
+                    ${safe(item.text)}
+                </p>
+
+                <p class="muted">
+                    From MathNova with Karan
+                </p>
+
+                ${
+                    teacherLoggedIn
+                    ?
+                    `
+                    <button
+                        class="btn"
+                        onclick="deleteItem('notifications','${safe(item.id)}')">
+                        🗑️ Delete
+                    </button>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+        `;
+
+    });
 
 }
-
-notifications.forEach(function(item){
-
-container.innerHTML+=`
-
-<div class="card notification">
-
-${
-item.imageUrl
-?
-`<img src="${safe(item.imageUrl)}">`
-:""
-}
-
-<h3>
-🔔 ${safe(item.title)}
-</h3>
-
-<p style="margin-top:10px">
-${safe(item.text)}
-</p>
-
-<p class="muted">
-From MathNova with Karan
-</p>
-
-</div>
-
-`;
-
-});
-
-}
-
-
 /* =========================
    RENDER QUESTIONS
 ========================= */
@@ -2851,7 +2918,75 @@ questions=data;
 },
 renderQuestions
 );
+/* =========================
+   TEACHER DELETE
+========================= */
 
+function deleteItem(type,id){
+
+    if(!document.getElementById("teacherDashboard") ||
+       document.getElementById("teacherDashboard").style.display==="none"){
+
+        alert("Teacher login required.");
+        return;
+    }
+
+    if(!id){
+        alert("Invalid item.");
+        return;
+    }
+
+    const confirmDelete =
+        confirm("Are you sure you want to delete this?");
+
+    if(!confirmDelete) return;
+
+    let ref = null;
+
+    if(type==="notes")
+        ref = refs.notes.child(id);
+
+    if(type==="dpp")
+        ref = refs.dpp.child(id);
+
+    if(type==="weekly")
+        ref = refs.weekly.child(id);
+
+    if(type==="lectures")
+        ref = refs.lectures.child(id);
+
+    if(type==="live")
+        ref = refs.live.child(id);
+
+    if(type==="recorded")
+        ref = refs.recorded.child(id);
+
+    if(type==="notifications")
+        ref = refs.notifications.child(id);
+
+    if(type==="questions")
+        ref = refs.questions.child(id);
+
+    if(!ref){
+        alert("Delete type not found.");
+        return;
+    }
+
+    ref.remove()
+    .then(function(){
+
+        alert("🗑️ Deleted successfully.");
+
+    })
+    .catch(function(error){
+
+        alert(
+            "❌ Delete failed: " +
+            error.message
+        );
+
+    });
+}
 </script>
 
 </body>
