@@ -1,0 +1,11 @@
+{
+  "name": "MathNova with Karan",
+  "short_name": "MathNova",
+  "description": "Mathematics learning app for Class 11 and 12",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#172b70",
+  "orientation": "portrait",
+  "icons": []
+}
